@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="spi">
+    <CLASSES>
+      <root url="file://$APPLICATION_HOME_DIR$/lib/cdi-api/javax/enterprise/inject/spi" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+           version="2.5">
+    <filter>
+        <filter-name>CrossingProfile</filter-name>
+        <filter-class>zopa.servlets.Authorization</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CrossingProfile</filter-name>
+        <url-pattern>/profile.jsp</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>Servlet</servlet-name>
+        <servlet-class>zopa.servlets.Servlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Signup</servlet-name>
+        <servlet-class>zopa.servlets.Signup</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Signin</servlet-name>
+        <servlet-class>zopa.servlets.Signin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignupSubmit</servlet-name>
+        <servlet-class>zopa.servlets.SignupSubmit</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Profile</servlet-name>
+        <servlet-class>zopa.servlets.Profile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet</servlet-name>
+        <url-pattern>/Servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Signup</servlet-name>
+        <url-pattern>/Signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Signin</servlet-name>
+        <url-pattern>/signin</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>SignupSubmit</servlet-name>
+        <url-pattern>/SignupSubmit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Profile</servlet-name>
+        <url-pattern>/Profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCourse</servlet-name>
+        <url-pattern>/addCourse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddWork</servlet-name>
+        <url-pattern>/addWork</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>MongoSignup</servlet-name>
+        <servlet-class>zopa.servlets.MongoSignup</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddCourse</servlet-name>
+        <servlet-class>zopa.servlets.AddCourse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddWork</servlet-name>
+        <servlet-class>zopa.servlets.AddWork</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MongoSignup</servlet-name>
+        <url-pattern>/MongoSignup</url-pattern>
+    </servlet-mapping>
+</web-app>

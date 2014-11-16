@@ -1,0 +1,273 @@
+    label{
+        color: #414141;
+        font-family: Arial, sans-serif;
+    }
+    h1 {
+        font-size: 36px;
+        line-height: 44px;
+        letter-spacing: 1px;
+        font-weight: normal;
+        font-family: "sofiapro-light",Tahoma,sans-serif;
+        color: #4a494b;;
+    }
+    h3{
+        margin-bottom: 0px;
+        font-family: Garamond,serif;
+        letter-spacing: 2px;
+        font-weight: normal;
+        color: #414141;
+        text-rendering: optimizelegibility;
+    }
+    .controls{
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 6px;
+        padding-right: 6px;
+        width: 192px;
+        height: 35px;
+    }
+    .inputpos{
+        width: 459px;
+        height: 65px;
+    }
+    #login:focus{
+        border: 1px solid #13af5d;
+        box-shadow: 0 0px 5px #31be71;
+        border-radius: 3px;
+
+    }
+    #password:focus{
+        border: 1px solid #13af5d;
+        box-shadow: 0 0 5px #31be71;
+        border-radius: 3px;
+
+    }
+
+    .upperbox{
+        height: 50px;
+        background-color:#f9faf7;
+        padding-top: 20px;
+        /*border-bottom: 1px solid rgb(204, 204, 204);*/
+    }
+    .upperboxfill{
+        width: 1000px;
+        padding: 10px 30px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .upperboxlogo{
+        color: #4a494b;
+        font-family: Garamond,serif;
+        float: left;
+        font-size: 12px;
+        position: relative;
+        top: 4px;
+        left: 20px;
+    }
+    .upperboxadd{
+        text-align: right;
+        position: relative;
+        float:right;
+    }
+    .accounts{
+        color: #4a494b;
+        font-family: Garamond,serif;
+        font-size: 14px;
+        letter-spacing: 2px;
+        position: relative;
+        margin-left: 30px;
+        top: 1px;
+        background-color: transparent;
+        width: 100px;
+        height: 30px;
+        border: none;
+    }
+    .avatar{
+        height: 30%;
+        width: 30%;
+        position: relative;
+        float: left;
+            /* border-bottom: 1px solid rgb(204, 204, 204);*/
+
+    }
+    .description{
+        height: 30%;
+        width: 70%;
+        position: relative;
+        float: left;
+        /*border-bottom: 1px solid rgb(204, 204, 204);*/
+    }
+    .profile-photo {
+        border: 1px solid #CCCCCC;
+        float: left;
+        height: 200px;
+        margin-bottom: 20px;
+        margin-left: 40px;
+       width: 200px;
+    }
+    .skills{
+        width: auto;
+        padding: 30px;
+        height: auto;
+        float: left;
+        position: relative;
+    }
+     .works{
+        width: auto;
+        padding: 30px;
+        height: auto;
+        float: left;
+        position: relative;
+    }
+    .lowerbox{
+        position:relative;
+        background-color:#f9faf7;
+        height: auto;
+    }
+    .container{
+        width: 1000px;
+        height: auto;
+        padding: 10px 30px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .mainbox{
+        margin-top: 15px;
+        -moz-box-sizing: border-box;
+        box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.25);
+        background-color: rgb(255, 255, 255);
+        border-radius: 1px;
+        padding: 30px 30px 48px;
+        margin-left: -3.19149%;
+        width: 106.383%;
+        height: 130%;
+    }
+    .mainboxleft{
+        float: left;
+        min-height: 1px;
+        margin-left: 20px;
+        border-right: 1px solid rgb(217, 217, 217);
+        padding-top:20px;
+    }
+    .mainboxright{
+        float: left;
+        min-height: 1px;
+        width: 380px;
+        padding: 20px;
+    }
+    .row{
+
+    }
+    .row1{
+        border-bottom: 1px solid rgb(204, 204, 204);
+    }
+    .inform-question{
+        position: relative;
+        float: left;
+        width: 15%;
+        height: auto;
+    }
+
+    .inform-answer{
+        position: relative;
+        float: left;
+        width: 70%;
+        height: auto;
+        margin-left: 20px;
+    }
+
+    .singin{
+        float: left;
+        min-height: 1px;
+        margin-left: 20px;
+        padding: 7px 0px;
+        border-bottom: 1px solid rgb(217, 217, 217);
+        margin-bottom: 0px;
+    }
+    .submit{
+        background-color: #16612e;
+        width: 100px;
+        height: 30px;
+        border: none;
+        color: #fefffc;
+        margin-top: 15px;
+        margin-left: 20px;
+    }
+    .change{
+        background-color: #16612e;
+        width: 100px;
+        height: 45px;
+        border: none;
+        color: #fefffc;
+        margin-top: 30px;
+        margin-right: 40px;
+        position: relative;
+        float: right; 
+    }
+    .no-account-yet {
+        padding-left: 20px;
+    }
+    .singup{
+        font-family: Garamond,serif;
+        font-weight: normal;
+        color: #414141;
+    }
+    a{
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .logo{
+        color: #4a494b;
+        font-family: Garamond,serif;
+    }
+    .invalid{
+        color: #e0695e;
+        border: none;
+    }
+    label{
+        color: #4a494b;
+        font-family: Garamond,serif;
+        font-size: 14px;
+        letter-spacing: 3px;
+        position: relative;
+        margin-left: 0px;
+        padding-bottom: 20px;
+    }
+    .article{
+        width: 94%;
+        padding-left: 40px;
+        margin-top: 50px;
+        border-bottom: 1px solid rgb(204, 204, 204);
+        position: relative;
+        float: left;
+    }
+    .add-skills{
+        width: auto;
+        position: relative;
+        float: left;
+    }
+    .add-skills-data{
+        float: left;
+        position: relative;
+        width: auto;
+        padding-left: 20px;
+    }
+    .add{
+        height: 50px;
+        width: 50px;
+        position: relative;
+        float: left;
+    }
+
+    h2{
+        color: #4a494b;
+        font-family: Garamond,serif;
+        font-size: 18px;
+        letter-spacing: 3px;
+        position: relative;
+        font-weight: normal;
+        float: left;
+    }
+    .input-user-data{
+        height: 30px;
+    }
