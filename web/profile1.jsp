@@ -87,7 +87,7 @@
 
             </div>
             <div class="article">
-                <h2>Skills</h2>
+                <h2>Works</h2>
             </div>
 
             <div class="skills">
@@ -116,20 +116,12 @@
             </div>
 
             <div class="skills">
-                <form action="${pageContext.request.contextPath}/addCourse" method="post">
+                <form action="${pageContext.request.contextPath}/addSkill" method="post">
                     <div class="add-skills">
                         <img class="add" src="resources/add-course.png">
                         <div class="add-skills-data">
-                            <label>Course Provider:</label><br>
-                            <input name="provider" class="input-user-data" required placeholder="Coursera, Udacity, etc">
-                        </div>
-                        <div class="add-skills-data">
-                            <label>Name of course:</label><br>
-                            <input name="course" class="input-user-data" required placeholder="Introduction in algorithms, etc.">
-                        </div>
-                        <div class="add-skills-data">
-                            <label>Progress, %:</label><br>
-                            <input name="progress" class="input-user-data" required placeholder="68%">
+                            <label>Skill:</label><br>
+                            <input name="skill" class="input-user-data" required placeholder="Java SE, Algorithms, etc.">
                         </div>
                         <button class="submit">Add</button>
                     </div>

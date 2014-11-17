@@ -2,6 +2,7 @@ package zopa.servlets;
 
 import com.mongodb.*;
 import sun.nio.cs.Surrogate;
+import zopa.controllers.ConnectionToDataBase;
 import zopa.controllers.MongoDBController;
 
 import javax.servlet.ServletException;
@@ -15,10 +16,13 @@ import java.io.IOException;
  */
 public class MongoSignup extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        MongoClient mongoClient = MongoDBController.getMongoDBClient("localhost");
+
+       /* MongoClient mongoClient = MongoDBController.getMongoDBClient("localhost");
         DB socialNetwork = MongoDBController.getMongoDataBase(mongoClient, "Social_Network");
         boolean auth = socialNetwork.authenticate("milinchuk","1111".toCharArray());
-        DBCollection user = MongoDBController.getMongoDBCollection(socialNetwork, "users");
+*/
+        ConnectionToDataBase.set("localhost", "Social_Network");
+        DBCollection user = MongoDBController.getMongoDBCollection(ConnectionToDataBase.get(), "users");
 
         BasicDBObject data = new BasicDBObject("login", request.getParameter("email").toString())
                 .append("password", request.getParameter("password").toString());
