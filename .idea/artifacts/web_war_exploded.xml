@@ -1,16 +1,24 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="web:war exploded">
+  <artifact type="exploded-war" build-on-make="true" name="web:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/web_war_exploded</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="zopa/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="zopa" />
+          <element id="module-output" name="penal" />
+          <element id="library" level="project" name="spi" />
         </element>
         <element id="directory" name="lib">
           <element id="file-copy" path="$USER_HOME$/mysql-connector-java-5.1.30/mysql-connector-java-5.1.30-bin.jar" />
+          <element id="library" level="project" name="validation-api-1.0.0.GA" />
+          <element id="library" level="project" name="mongo-2.10.1" />
+          <element id="library" level="project" name="cdi-api" />
+          <element id="library" level="project" name="javax-inject" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="penal/web/Web" />
+      <element id="javaee-facet-resources" facet="penal/web/Web2" />
     </root>
   </artifact>
 </component>

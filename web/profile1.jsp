@@ -87,11 +87,11 @@
 
             </div>
             <div class="article">
-                <h2>Works</h2>
+                <h2>Courses</h2>
             </div>
 
             <div class="skills">
-                <form action="${pageContext.request.contextPath}/addCourse" method="post">
+                <form action="addCourse" method="post">
                     <div class="add-skills">
                         <img class="add" src="resources/add-course.png">
                         <div class="add-skills-data">

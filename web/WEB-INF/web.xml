@@ -19,7 +19,7 @@
     </servlet>
     <servlet>
         <servlet-name>Signup</servlet-name>
-        <servlet-class>zopa.servlets.Signup</servlet-class>
+        <servlet-class>zopa.registration.Signup</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Signin</servlet-name>
@@ -31,7 +31,7 @@
     </servlet>
     <servlet>
         <servlet-name>Profile</servlet-name>
-        <servlet-class>zopa.servlets.Profile</servlet-class>
+        <servlet-class>zopa.profiles.Profile</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
@@ -40,7 +40,7 @@
 
     <servlet-mapping>
         <servlet-name>Signup</servlet-name>
-        <url-pattern>/Signup</url-pattern>
+        <url-pattern>/signup</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Signin</servlet-name>
@@ -67,12 +67,23 @@
         <servlet-name>AddSkill</servlet-name>
         <url-pattern>/addSkill</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>Step_2</servlet-name>
+        <url-pattern>/signup-step2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateUserProfile</servlet-name>
+        <url-pattern>/create-user-profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateOrganizationProfile</servlet-name>
+        <url-pattern>/create-organization-profile</url-pattern>
+    </servlet-mapping>
 
 
     <servlet>
         <servlet-name>MongoSignup</servlet-name>
-        <servlet-class>zopa.servlets.MongoSignup</servlet-class>
+        <servlet-class>zopa.profiles.MongoSignup</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddCourse</servlet-name>
@@ -85,6 +96,20 @@
     <servlet>
         <servlet-name>AddSkill</servlet-name>
         <servlet-class>zopa.servlets.AddSkill</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Step_2</servlet-name>
+        <servlet-class>zopa.registration.Step_2</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CreateUserProfile</servlet-name>
+        <servlet-class>zopa.registration.CreateUserProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateOrganizationProfile</servlet-name>
+        <servlet-class>zopa.registration.CreateOrganizationProfile</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MongoSignup</servlet-name>

@@ -22,5 +22,4 @@ public class ConnectionToDataBase {
         return dataBase;
     }
 
-
 }

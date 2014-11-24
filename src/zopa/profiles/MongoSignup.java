@@ -1,4 +1,4 @@
-package zopa.servlets;
+package zopa.profiles;
 
 import com.mongodb.*;
 import sun.nio.cs.Surrogate;

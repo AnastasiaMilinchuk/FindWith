@@ -1,4 +1,4 @@
-package zopa.servlets;
+package zopa.profiles;
 
 
 import javax.servlet.ServletException;

@@ -225,7 +225,7 @@
                           No Account Yet?
                       </h3>
                       <p class="singup">
-                          <a href="/Signup">Sign Up</a> today!
+                          <a href="signup.jsp">Sign Up</a> today!
                       </p>
                   </div>
               </div>
