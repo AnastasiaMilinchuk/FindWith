@@ -1,5 +1,7 @@
 package zopa.registration;
 
+import zopa.Entities.Person;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,10 +13,14 @@ import java.io.IOException;
  */
 public class Step_2 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getSession().setAttribute("user-first-name", request.getParameter("firstname"));
-        request.getSession().setAttribute("user-second-name", request.getParameter("secondname"));
-        request.getSession().setAttribute("user-email", request.getParameter("email"));
-        request.getSession().setAttribute("user-password", request.getParameter("password"));
+        Person person = new Person();
+        person.setFirstname(request.getParameter("firstname"));
+        person.setLastname(request.getParameter("secondname"));
+        person.setEmail(request.getParameter("email"));
+        person.setPassword(request.getParameter("password"));
+        person.setLogin(request.getParameter("email"));
+
+        request.getSession().setAttribute("person", person);
         request.getRequestDispatcher("/signup-step2.jsp").forward(request, response);
     }
 

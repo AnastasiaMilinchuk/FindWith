@@ -1,6 +1,7 @@
+<%@ page import="zopa.Entities.Person" %>
 <%--
   Created by IntelliJ IDEA.
-  User: milinchuk
+  Person: milinchuk
   Date: 11/9/14
   Time: 10:21 PM
   To change this template use File | Settings | File Templates.
@@ -63,7 +64,7 @@
                 <img align="middle" class="profile-photo" src="resources/profile.png">
             </div>
             <div class="description">
-                <h1><%= request.getSession().getAttribute("name") %></h1>
+                <h1><%= ((Person)request.getSession().getAttribute("person")).getFirstname() +  " " + ((Person)request.getSession().getAttribute("person")).getLastname() %></h1>
                 <div class="inform-question">
                     <p><label>DB:</label></p>
 
@@ -75,13 +76,13 @@
 
                 </div>
                 <div class="inform-answer">
-                    <p><label><%= request.getSession().getAttribute("birthday")%></label></p>
+                    <p><label><%= ((Person)request.getSession().getAttribute("person")).getBirthday()%></label></p>
 
-                    <p><label><%= request.getSession().getAttribute("email")%></label></p>
+                    <p><label><%= ((Person)request.getSession().getAttribute("person")).getEmail()%></label></p>
 
-                    <p><label><%= request.getSession().getAttribute("phone")%></label></p>
+                    <p><label><%= ((Person)request.getSession().getAttribute("person")).getPhone()%></label></p>
 
-                    <p><label><%= request.getSession().getAttribute("education")%></label></p>
+                    <p><label><%= ((Person)request.getSession().getAttribute("person")).getEducation() %></label></p>
                 </div>
                 <%--<button class="change">Change</button>--%>
 
@@ -96,15 +97,15 @@
                         <img class="add" src="resources/add-course.png">
                         <div class="add-skills-data">
                             <label>Course Provider:</label><br>
-                            <input name="provider" class="input-user-data" required placeholder="Coursera, Udacity, etc">
+                            <input name="provider" class="input-person-data" required placeholder="Coursera, Udacity, etc">
                         </div>
                         <div class="add-skills-data">
                             <label>Name of course:</label><br>
-                            <input name="course" class="input-user-data" required placeholder="Introduction in algorithms, etc.">
+                            <input name="course" class="input-person-data" required placeholder="Introduction in algorithms, etc.">
                         </div>
                         <div class="add-skills-data">
                             <label>Progress, %:</label><br>
-                            <input name="progress" class="input-user-data" required placeholder="68%">
+                            <input name="progress" class="input-person-data" required placeholder="68%">
                         </div>
                         <button class="submit">Add</button>
                     </div>
@@ -121,7 +122,7 @@
                         <img class="add" src="resources/add-course.png">
                         <div class="add-skills-data">
                             <label>Skill:</label><br>
-                            <input name="skill" class="input-user-data" required placeholder="Java SE, Algorithms, etc.">
+                            <input name="skill" class="input-person-data" required placeholder="Java SE, Algorithms, etc.">
                         </div>
                         <button class="submit">Add</button>
                     </div>
@@ -137,7 +138,7 @@
                     <img class="add" src="resources/add-course.png">
                     <div class="add-skills-data">
                         <label>Reference:</label><br>
-                        <input  name="reference" class="input-user-data" required placeholder="http://github.com/io4556">
+                        <input  name="reference" class="input-person-data" required placeholder="http://github.com/io4556">
                     </div>
                     <div class="add-skills-data">
                         <label>Description:</label><br>

@@ -1,16 +1,17 @@
 package zopa.DAO;
 
-import zopa.Entities.User;
+import zopa.Entities.Person;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by milinchuk on 11/24/14.
  */
 public interface UserDAO {
-    public User getUser(String login);
-    public boolean addUser(User user);
-    public Collection getAllUsers();
-    public boolean updateUser(String login, User updatedUser);
+    public Person getUser(String login);
+    public boolean addUser(Person person);
+    public List<Person> getAllUsers();
+    public boolean updateUser(String login, Person updatedPerson);
     public boolean deleteUser(String login);
+    public boolean isExist(String login, String password);
 }

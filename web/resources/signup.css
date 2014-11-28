@@ -25,7 +25,7 @@ h3{
     padding-right: 6px;
     float: left;
     width: 192px;
-    height: 35px;
+    height: auto;
 }
 .labelcontrols{
     float: left;

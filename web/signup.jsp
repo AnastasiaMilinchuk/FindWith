@@ -40,7 +40,7 @@
                 <form action="${pageContext.request.contextPath}/signup-step2" method="post">
                     <div class="inputpos">
                         <label class="labelcontrols" >First name</label>
-                        <input id="firstname" class="controls"
+                        <input required id="firstname" class="controls"
                                type="text" data-form-correct="Nice to meet you!"
                                data-form-error="Please enter a real name" placeholder="First name"
                                data-form-schema="string+" data-form-required="data-form-required"
@@ -48,7 +48,7 @@
                     </div>
                     <div class="inputpos">
                         <label class="labelcontrols" >Second name</label>
-                        <input id="secondname" class="controls"
+                        <input required id="secondname" class="controls"
                                type="text" data-form-correct="Nice to meet you!"
                                data-form-error="Please enter a real name" placeholder="Second name"
                                data-form-schema="string+" data-form-required="data-form-required"
@@ -57,16 +57,16 @@
 
                     <div class="inputpos">
                         <label  class="labelcontrols" for="email">E-mail</label>
-                        <input class="controls" placeholder="E-mail" tittle="Enter E-mail"name="email" id="email">
+                        <input class="controls" required placeholder="E-mail" tittle="Enter E-mail"name="email" id="email">
                     </div>
 
                     <div class="inputpos">
                         <label  class="labelcontrols" for="password">Password</label>
-                        <input class="controls" name="password" placeholder="Password" title="Enter Password" type="password" id="password">
+                        <input required class="controls" name="password" placeholder="Password" title="Enter Password" type="password" id="password">
                     </div>
                     <div class="inputpos">
                         <label  class="labelcontrols" for="confirm_password">Confirm Password</label>
-                        <input class="controls" placeholder="Confirm Password" title="Confirm Password" name="confirm_password" type="password" id="confirm_password">
+                        <input required class="controls" placeholder="Confirm Password" title="Confirm Password" name="confirm_password" type="password" id="confirm_password">
                     </div>
                     <br>
                     <input class="submit" type="submit" name="submit" value="Step 2" />

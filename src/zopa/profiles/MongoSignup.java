@@ -1,9 +1,7 @@
 package zopa.profiles;
 
-import com.mongodb.*;
-import sun.nio.cs.Surrogate;
-import zopa.controllers.ConnectionToDataBase;
-import zopa.controllers.MongoDBController;
+import zopa.DAORealizations.UserDAOImpl;
+import zopa.Entities.Person;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +19,22 @@ public class MongoSignup extends HttpServlet {
         DB socialNetwork = MongoDBController.getMongoDataBase(mongoClient, "Social_Network");
         boolean auth = socialNetwork.authenticate("milinchuk","1111".toCharArray());
 */
-        ConnectionToDataBase.set("localhost", "Social_Network");
+        if(request.getSession().getAttribute("user") == null){
+            UserDAOImpl userDAO = new UserDAOImpl("localhost","Social_Network", "users");
+            if(userDAO.isExist(request.getParameter("email"), request.getParameter("password"))){
+                Person person = userDAO.getUser(request.getParameter("email").toString());
+                request.getSession().setAttribute("person", person);
+                request.getSession().setAttribute("invalid", "");
+                request.getRequestDispatcher("/profile1.jsp").forward(request,response);
+            }
+            else{
+                request.getSession().setAttribute("invalid", "Invalid login or password");
+                request.getSession().setAttribute("user", "false");
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            }
+        }
+
+        /*ConnectionToDataBase.set("localhost", "Social_Network");
         DBCollection user = MongoDBController.getMongoDBCollection(ConnectionToDataBase.get(), "users");
 
         BasicDBObject data = new BasicDBObject("login", request.getParameter("email").toString())
@@ -43,7 +56,7 @@ public class MongoSignup extends HttpServlet {
             request.getSession().setAttribute("education", userData.get("education"));
 
             request.getSession().setAttribute("login", request.getParameter("email").toString());
-            //request.getSession().setAttribute("password", request.getParameter("password"));*/
+            //request.getSession().setAttribute("password", request.getParameter("password"));
             request.getSession().setAttribute("invalid", "");
             request.getRequestDispatcher("/profile1.jsp").forward(request,response);
         }
@@ -51,11 +64,10 @@ public class MongoSignup extends HttpServlet {
             request.getSession().setAttribute("invalid", "Invalid login or password");
             request.getSession().setAttribute("user", "false");
             request.getRequestDispatcher("/index.jsp").forward(request, response);
-        }
+        }*/
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-       // request.getRequestDispatcher("/signup.jsp").forward(request, response);
     }
 }

@@ -73,14 +73,22 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CreateUserProfile</servlet-name>
-        <url-pattern>/create-user-profile</url-pattern>
+        <url-pattern>/create-person-profile</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CreateOrganizationProfile</servlet-name>
         <url-pattern>/create-organization-profile</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindPeople</servlet-name>
+        <url-pattern>/find-people</url-pattern>
+    </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>FindPeople</servlet-name>
+        <servlet-class>zopa.profiles.FindPeople</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>MongoSignup</servlet-name>
         <servlet-class>zopa.profiles.MongoSignup</servlet-class>

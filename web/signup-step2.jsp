@@ -16,22 +16,38 @@
     </script>
     <script  type="text/javascript">
         $(function(){
-            $('#user').click(function(){
+            $('#person').click(function(){
                 $('#organization-data').hide();
-                $('#user-data').show();
+                $('#person-data').show();
             });
         });
         $(function(){
             $('#organization').click(function(){
-                $('#user-data').hide();
+                $('#person-data').hide();
                 $('#organization-data').show();
 
             });
         });
         $(document).ready(function() {
             $('#organization-data').hide();
+            $('#person').prop('checked', true);
 
+            var max_fields      = 31; //maximum input boxes allowed
+            var wrapper         = $("#day"); //Fields wrapper
+
+            for(var i = 1; i <= 31; i++){ //max input box allowe
+                $(wrapper).append(' <option selected value="'+i+'">'+i+'</option>'); //add input box
+            }
+
+            for(var i = 1; i <= 12; i++){ //max input box allowed
+                $("#month").append(' <option selected value="'+i+'">'+i+'</option>'); //add input box
+            }
+
+            for(var i = 1920; i <= 2004; i++){ //max input box allowed
+                $("#year").append(' <option selected value="'+i+'">'+i+'</option>'); //add input box
+            }
         });
+
     </script>
 </head>
 <body>
@@ -63,7 +79,7 @@
                 <%--<form action="${pageContext.request.contextPath}/SignupSubmit" method="doPost">--%>
                     <div class="inputpos">
                         <label class="labelcontrols">User</label>
-                        <input id="user" class="controls" name="face" value="user"
+                        <input id="person" class="controls" name="face" value="person"
                                type="radio" checked>
 
                     </div>
@@ -75,43 +91,57 @@
                     </div>
 
 
-                    <form id="user-data" action="create-user-profile" method="post">
+                    <form id="person-data" action="create-person-profile" method="post">
                         <div class="inputpos">
-                            <label  class="labelcontrols" for="email">Birthday</label>
-                            <input class="controls" placeholder="E-mail" tittle="Enter E-mail"name="birthday" id="b-day">
+                            <label  class="labelcontrols" >Birthday</label>
+                            <select name="day" id="day">
+                            </select>
+                            <select name="month" id="month">
+                            </select>
+                            <select name="year" id="year">
+                            </select>
                         </div>
 
                         <div class="inputpos">
-                            <label  class="labelcontrols" for="email">Phone</label>
-                            <input class="controls" placeholder="E-mail" tittle="Enter E-mail"name="phone" id="phone">
+                            <label  class="labelcontrols" >Phone</label>
+                            <div class="controls">
+                                <input class="controls" placeholder="Phone" tittle="Enter phone"name="phone" id="phone">
+                            </div>
                         </div>
 
                         <div class="inputpos">
-                            <label  class="labelcontrols" for="email">E-mail</label>
-                            <input class="controls" placeholder="E-mail" tittle="Enter E-mail"name="email" id="email">
+                            <label  class="labelcontrols" >Education</label>
+                            <div class="controls">
+                                <input class="controls" placeholder="University" tittle="Enter university"name="university" id="university">
+                                <input class="controls" placeholder="Faculty" tittle="Enter faculty" name="faculty" id="faculty">
+                                <input class="controls" placeholder="Graduate year" tittle="Enter graduate year" name="graduateYear" id="graduateYear">
+                            </div>
                         </div>
-
                         <div class="inputpos">
-                            <label  class="labelcontrols" for="email">Education</label>
-                            <input class="controls" placeholder="E-mail" tittle="Enter E-mail"name="education" id="education">
+                            <label  class="labelcontrols" >Industry</label>
+                            <div class="controls">
+                                <input class="controls" placeholder="Industry" tittle="Location"name="industry" id="industry">
+                            </div>
                         </div>
-
                         <div class="inputpos">
-                            <label  class="labelcontrols" for="email">Current Location</label>
-                            <input class="controls" placeholder="E-mail" tittle="Enter E-mail"name="location" id="location">
+                            <label  class="labelcontrols" >Current Location</label>
+                            <div class="controls">
+                                <input class="controls" placeholder="Country" tittle="Location"name="country" id="country">
+                                <input class="controls" placeholder="City" tittle="Location"name="city" id="city">
+                            </div>
                         </div>
                         <input class="submit" type="submit" name="submit" value="Sign Up" />
                     </form>
 
                     <form id="organization-data"  action="create-organization-profile" method="post">
                         <div class="inputpos">
-                            <label  class="labelcontrols" for="email">Name</label>
-                            <input class="controls" placeholder="E-mail" tittle="Enter E-mail"name="organization-name" id="organization-name">
+                            <label  class="labelcontrols" >Name</label>
+                            <input required class="controls" placeholder="Name" tittle="Enter Name"name="organization-name" id="organization-name">
                         </div>
 
                         <div class="inputpos">
-                            <label  class="labelcontrols" for="email">About</label>
-                            <input class="controls" placeholder="E-mail" tittle="Enter E-mail"name="about" id="organization-about">
+                            <label  class="labelcontrols" >About</label>
+                            <input class="controls" placeholder="About" tittle="Enter about organization"name="about" id="organization-about">
                         </div>
                         <input class="submit" type="submit" name="submit" value="Sign Up" />
                     </form>

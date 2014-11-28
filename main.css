@@ -24,7 +24,7 @@
         padding-left: 6px;
         padding-right: 6px;
         width: 192px;
-        height: 35px;
+        height: auto;
     }
     .inputpos{
         width: 459px;
