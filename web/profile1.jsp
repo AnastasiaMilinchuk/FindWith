@@ -72,7 +72,11 @@
 
                     <p><label>Phone:</label></p>
 
+                    <p><label>Industry:</label></p>
+
                     <p><label>Education:</label></p>
+
+                    <p><label>Location:</label></p>
 
                 </div>
                 <div class="inform-answer">
@@ -82,7 +86,15 @@
 
                     <p><label><%= ((Person)request.getSession().getAttribute("person")).getPhone()%></label></p>
 
-                    <p><label><%= ((Person)request.getSession().getAttribute("person")).getEducation() %></label></p>
+                    <p><label><%= ((Person)request.getSession().getAttribute("person")).getIndustry() %></label></p>
+
+                    <p><label><%= ((Person)request.getSession().getAttribute("person")).getEducation().getUniversity() %></label>
+                    <label><%= ((Person)request.getSession().getAttribute("person")).getEducation().getFaculty() %></label>
+                    <label><%= ((Person)request.getSession().getAttribute("person")).getEducation().getGraduateYear() %></label></p>
+
+                    <p><label><%= ((Person)request.getSession().getAttribute("person")).getLocation().getCountry() %></label></p>
+                    <p><label><%= ((Person)request.getSession().getAttribute("person")).getLocation().getCity() %></label></p>
+
                 </div>
                 <%--<button class="change">Change</button>--%>
 
@@ -103,10 +115,7 @@
                             <label>Name of course:</label><br>
                             <input name="course" class="input-person-data" required placeholder="Introduction in algorithms, etc.">
                         </div>
-                        <div class="add-skills-data">
-                            <label>Progress, %:</label><br>
-                            <input name="progress" class="input-person-data" required placeholder="68%">
-                        </div>
+
                         <button class="submit">Add</button>
                     </div>
                 </form>

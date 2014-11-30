@@ -11,8 +11,9 @@
 
 <head>
     <title></title>
+    <meta charset=UTF-8">
     <link type="text/css" rel="stylesheet" href="resources/signup.css">
-    <script  type="text/javascript" src="resources/jquery.js">
+    <script  type="text/javascript" src="resources/jquery.js" charset="utf-8">
     </script>
     <script  type="text/javascript">
         $(function(){
@@ -120,7 +121,7 @@
                         <div class="inputpos">
                             <label  class="labelcontrols" >Industry</label>
                             <div class="controls">
-                                <input class="controls" placeholder="Industry" tittle="Location"name="industry" id="industry">
+                                <input class="controls" placeholder="Industry" tittle="Location" name="industry" id="industry">
                             </div>
                         </div>
                         <div class="inputpos">
@@ -136,12 +137,41 @@
                     <form id="organization-data"  action="create-organization-profile" method="post">
                         <div class="inputpos">
                             <label  class="labelcontrols" >Name</label>
-                            <input required class="controls" placeholder="Name" tittle="Enter Name"name="organization-name" id="organization-name">
+                            <input required class="controls" placeholder="Name" tittle="Enter Name"name="name" id="name">
                         </div>
 
                         <div class="inputpos">
-                            <label  class="labelcontrols" >About</label>
-                            <input class="controls" placeholder="About" tittle="Enter about organization"name="about" id="organization-about">
+                            <label  class="labelcontrols" >Content</label>
+                            <input class="controls" placeholder="About" tittle="Enter about organization"name="content" id="content">
+                        </div>
+
+
+                        <div class="inputpos">
+                            <label  class="labelcontrols" >Phone</label>
+                            <div class="controls">
+                                <input class="controls" placeholder="Phone" tittle="Enter phone"name="phone" id="organization-phone">
+                            </div>
+                        </div>
+
+                        <div class="inputpos">
+                            <label  class="labelcontrols" >Industry</label>
+                            <div class="controls">
+                                <input class="controls" placeholder="Industry" tittle="Location" name="industry" id="organization-industry">
+                            </div>
+                        </div>
+                        <div class="inputpos">
+                            <label  class="labelcontrols" >Current Location</label>
+                            <div class="controls">
+                                <input class="controls" placeholder="Country" tittle="Location"name="country" id="organization-country">
+                                <input class="controls" placeholder="City" tittle="Location"name="city" id="organization-city">
+                            </div>
+                        </div>
+
+                        <div class="inputpos">
+                            <label  class="labelcontrols" >Website</label>
+                            <div class="controls">
+                                <input class="controls" placeholder="Website" tittle="Website" name="website" id="website">
+                            </div>
                         </div>
                         <input class="submit" type="submit" name="submit" value="Sign Up" />
                     </form>

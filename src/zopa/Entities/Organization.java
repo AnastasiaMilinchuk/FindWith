@@ -5,6 +5,8 @@ package zopa.Entities;
  */
 public class Organization extends User {
     private String name;
+    private String content;
+    private String website;
 
     public String getContent() {
         return content;
@@ -29,18 +31,5 @@ public class Organization extends User {
     public void setWebsite(String website) {
         this.website = website;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    private String content;
-    private String website;
-    private String email;
-
 
 }

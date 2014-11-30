@@ -6,7 +6,7 @@ package zopa.Entities.InnerEntities;
 public class UserEducation {
     private String university;
     private String faculty;
-    private String graduateYear;
+    private Integer graduateYear;
 
     public UserEducation(){
 
@@ -20,11 +20,11 @@ public class UserEducation {
         this.university = university;
     }
 
-    public String getGraduateYear() {
+    public int getGraduateYear() {
         return graduateYear;
     }
 
-    public void setGraduateYear(String graduateYear) {
+    public void setGraduateYear(Integer graduateYear) {
         this.graduateYear = graduateYear;
     }
 

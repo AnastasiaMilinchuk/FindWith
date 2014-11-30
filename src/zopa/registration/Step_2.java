@@ -13,6 +13,7 @@ import java.io.IOException;
  */
 public class Step_2 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         Person person = new Person();
         person.setFirstname(request.getParameter("firstname"));
         person.setLastname(request.getParameter("secondname"));

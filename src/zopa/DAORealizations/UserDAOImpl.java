@@ -2,10 +2,14 @@ package zopa.DAORealizations;
 
 import com.mongodb.*;
 import zopa.DAO.UserDAO;
+import zopa.Entities.InnerEntities.Location;
+import zopa.Entities.InnerEntities.Project;
+import zopa.Entities.InnerEntities.UserEducation;
 import zopa.Entities.Person;
 import zopa.controllers.MongoDBController;
 
 import java.net.UnknownHostException;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,19 +29,42 @@ public class UserDAOImpl implements UserDAO {
         Person newPerson = new Person();
         newPerson.setFirstname((String)u.get("firstname"));
         newPerson.setLastname((String)u.get("secondname"));
-        newPerson.setBirthday((String)u.get("birthday"));
-        newPerson.setLogin((String)u.get("login"));
+
+        newPerson.setBirthday((Date)u.get("birthday"));
+        newPerson.setLogin((String) u.get("login"));
         newPerson.setPassword((String)u.get("password"));
-        // add location in bean
-        // newPerson.setLocation((Location)u.get("location"));
-        //
-        newPerson.setPhoto((String)u.get("photo"));
-        newPerson.setPhone((String) u.get("phones"));
-       // newPerson.setEducation((List<UserEducation>)u.get("education"));
-        newPerson.setEmail((String) u.get("emails"));
-        //newPerson.setExperience((List<Experience>)u.get("experience"));
+        newPerson.setEmail((String) u.get("email"));
         newPerson.setIndustry((String)u.get("industry"));
-        //newPerson.setProjects((List<Project>)u.get("projects") );
+        newPerson.setPhoto((String)u.get("photo"));
+        newPerson.setPhone((String) u.get("phone"));
+
+        Location location = new Location();
+        DBObject object = (DBObject)u.get("location");
+        location.setCountry(object.get("country").toString());
+        location.setCity(object.get("city").toString());
+        newPerson.setLocation(location);
+
+
+        DBObject edu = (DBObject)(u.get("education"));
+            UserEducation education = new UserEducation();
+            education.setUniversity(edu.get("university").toString());
+            education.setFaculty(edu.get("faculty").toString());
+            education.setGraduateYear(edu.get("year").toString() == "" ? null : Integer.parseInt(edu.get("year").toString()));
+
+        newPerson.setEducation(education);
+
+        DBCursor cursor = (DBCursor)(u.get("projects"));
+        if(cursor != null){
+            List<Project> projects = new LinkedList<Project>();
+            for(DBObject proj: cursor){
+                Project p = new Project();
+                p.setReference(proj.get("reference").toString());
+                p.setDescription(proj.get("descroption").toString());
+                projects.add(p);
+            }
+             newPerson.setProjects(projects);
+        }
+
         //newPerson.setFollowings((List<String>)u.get("followings"));
         //newPerson.setSkills((List<String>)u.get("skills"));
         return newPerson;
@@ -57,9 +84,9 @@ public class UserDAOImpl implements UserDAO {
     public boolean addUser(Person person) {
         try {
             BasicDBObject location = new BasicDBObject("country", person.getLocation().getCountry()).append("city", person.getLocation().getCity());
-            BasicDBObject education = new BasicDBObject("university", person.getEducation().get(0).getUniversity()).
-                    append("faculty", person.getEducation().get(0).getFaculty()).
-                    append("year", person.getEducation().get(0).getUniversity());
+            BasicDBObject education = new BasicDBObject("university", person.getEducation().getUniversity()).
+                    append("faculty", person.getEducation().getFaculty()).
+                    append("year", person.getEducation().getGraduateYear());
 
             BasicDBObject addNewUser = new BasicDBObject("login", person.getLogin()).
                     append("password", person.getPassword()).
