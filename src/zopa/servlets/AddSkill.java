@@ -25,7 +25,7 @@ public class AddSkill extends HttpServlet {
             BasicDBObject updateQuery = new BasicDBObject("$push", item);
             users.update(findQuery, updateQuery);
         }
-        request.getRequestDispatcher("/profile1.jsp").forward(request, response);
+        request.getRequestDispatcher("/profile.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

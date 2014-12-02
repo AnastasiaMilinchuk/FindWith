@@ -1,5 +1,6 @@
 package zopa.Entities;
 
+import zopa.Entities.InnerEntities.Course;
 import zopa.Entities.InnerEntities.Project;
 import zopa.Entities.InnerEntities.UserEducation;
 
@@ -16,8 +17,20 @@ public class Person extends User{
 
     private List<String> followings;
     private List<String> skills;
+    private List<Course> courses;
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
 
     public Person(){
+//        followings = new LinkedList<String>();
+//        skills = new LinkedList<String>();
+//        projects = new LinkedList<Project>();
     }
 
     // Setters

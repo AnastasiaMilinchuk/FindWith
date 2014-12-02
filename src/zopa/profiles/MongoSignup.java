@@ -25,7 +25,7 @@ public class MongoSignup extends HttpServlet {
                 Person person = userDAO.getUser(request.getParameter("email").toString());
                 request.getSession().setAttribute("person", person);
                 request.getSession().setAttribute("invalid", "");
-                request.getRequestDispatcher("/profile1.jsp").forward(request,response);
+                request.getRequestDispatcher("/profile.jsp").forward(request,response);
             }
             else{
                 request.getSession().setAttribute("invalid", "Invalid login or password");
@@ -58,7 +58,7 @@ public class MongoSignup extends HttpServlet {
             request.getSession().setAttribute("login", request.getParameter("email").toString());
             //request.getSession().setAttribute("password", request.getParameter("password"));
             request.getSession().setAttribute("invalid", "");
-            request.getRequestDispatcher("/profile1.jsp").forward(request,response);
+            request.getRequestDispatcher("/profile.jsp").forward(request,response);
         }
         else{
             request.getSession().setAttribute("invalid", "Invalid login or password");

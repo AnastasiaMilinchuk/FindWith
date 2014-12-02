@@ -31,7 +31,7 @@ public class AddCourse extends HttpServlet {
         skills.save(newCourse);
 
         }
-        request.getRequestDispatcher("/profile1.jsp").forward(request, response);
+        request.getRequestDispatcher("/profile.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

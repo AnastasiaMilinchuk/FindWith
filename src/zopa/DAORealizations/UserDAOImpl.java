@@ -2,6 +2,7 @@ package zopa.DAORealizations;
 
 import com.mongodb.*;
 import zopa.DAO.UserDAO;
+import zopa.Entities.InnerEntities.Course;
 import zopa.Entities.InnerEntities.Location;
 import zopa.Entities.InnerEntities.Project;
 import zopa.Entities.InnerEntities.UserEducation;
@@ -12,6 +13,7 @@ import java.net.UnknownHostException;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by milinchuk on 11/24/14.
@@ -53,20 +55,48 @@ public class UserDAOImpl implements UserDAO {
 
         newPerson.setEducation(education);
 
-        DBCursor cursor = (DBCursor)(u.get("projects"));
+        BasicDBList cursor = (BasicDBList)(u.get("projects"));
         if(cursor != null){
             List<Project> projects = new LinkedList<Project>();
-            for(DBObject proj: cursor){
+            for(Object proj: cursor){
                 Project p = new Project();
-                p.setReference(proj.get("reference").toString());
-                p.setDescription(proj.get("descroption").toString());
+                p.setReference(((DBObject)proj).get("reference").toString());
+                p.setDescription(((DBObject)proj).get("description").toString());
                 projects.add(p);
             }
              newPerson.setProjects(projects);
         }
+        List<String> skills = new LinkedList<String>();
+        BasicDBList skill = (BasicDBList)u.get("skills");
+        if(skill != null){
+            for(Object s: skill){
+                skills.add((String)s);
+            }
+        }
+        newPerson.setSkills(skills);
 
-        //newPerson.setFollowings((List<String>)u.get("followings"));
-        //newPerson.setSkills((List<String>)u.get("skills"));
+        List<Course> courses = new LinkedList<Course>();
+        BasicDBList crs = (BasicDBList)u.get("courses");
+        if(crs != null){
+            for(Object c: crs){
+                DBObject obj = (DBObject)c;
+                Course course = new Course();
+                course.setProvider((String)obj.get("provider"));
+                course.setName((String)obj.get("name"));
+                courses.add(course);
+            }
+        }
+        newPerson.setCourses(courses);
+
+        List<String> followings = new LinkedList<String>();
+        BasicDBList follows = (BasicDBList)u.get("followings");
+        if(follows != null){
+            for(Object f: follows){
+                followings.add((String)f);
+            }
+        }
+        newPerson.setFollowings(followings);
+
         return newPerson;
     }
     @Override

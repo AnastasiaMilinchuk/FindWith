@@ -28,7 +28,7 @@ public class AddWork extends HttpServlet {
             newWork.put("user", request.getSession().getAttribute("login"));
             works.save(newWork);
         }
-        request.getRequestDispatcher("/profile1.jsp").forward(request, response);
+        request.getRequestDispatcher("/profile.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

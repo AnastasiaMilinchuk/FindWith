@@ -80,7 +80,7 @@ public class Servlet extends HttpServlet{
                     request.getSession().setAttribute("name", rs.getString("name"));
                     request.getSession().setAttribute("password", rs.getString("password"));
                     request.getSession().setAttribute("email", rs.getString("email"));
-                    request.getRequestDispatcher("/profile1.jsp").forward(request,response);
+                    request.getRequestDispatcher("/profile.jsp").forward(request,response);
                     request.getSession().setAttribute("login","true");
                 }
                 else{

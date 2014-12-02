@@ -83,8 +83,15 @@
         <servlet-name>FindPeople</servlet-name>
         <url-pattern>/find-people</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Menu</servlet-name>
+        <url-pattern>/menu</url-pattern>
+    </servlet-mapping>
 
-
+    <servlet>
+        <servlet-name>Menu</servlet-name>
+        <servlet-class>zopa.servlets.Menu</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>FindPeople</servlet-name>
         <servlet-class>zopa.profiles.FindPeople</servlet-class>
