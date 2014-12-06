@@ -1,7 +1,7 @@
-<%@ page import="zopa.Entities.Person" %>
+<%@ page import="findwith.Entities.Person" %>
 <%@ page import="java.util.List" %>
-<%@ page import="zopa.Entities.InnerEntities.Course" %>
-<%@ page import="zopa.Entities.InnerEntities.Project" %>
+<%@ page import="findwith.Entities.InnerEntities.Course" %>
+<%@ page import="findwith.Entities.InnerEntities.Project" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 <%--
@@ -21,7 +21,6 @@
 <div class="upperbox">
     <div class="upperboxfill">
 
-    <form action="menu?choose=" method="get">
         <div class="upperboxadd">
             <span style="margin:0px 10px 0px 37px;color:#717171;"> |  </span>
             <a><span id="logout" class="accounts">
@@ -29,7 +28,7 @@
             </span></a>
         </div>
         <div class="upperboxadd">
-            <a>
+            <a href="settings.jsp">
             <button name="choose" id="settings" class="accounts">
                Settings
             </button>
@@ -57,7 +56,6 @@
             </button>
                 </a>
         </div>
-    </form>
     </div>
 </div>
 
@@ -69,7 +67,7 @@
                 <img align="middle" class="profile-photo" src="resources/profile.png">
             </div>
             <div class="description">
-                <input ><%= ((Person)request.getSession().getAttribute("person")).getFirstname() +  " " + ((Person)request.getSession().getAttribute("person")).getLastname() %></h1>
+                <h1><%= ((Person)request.getSession().getAttribute("person")).getFirstname() +  " " + ((Person)request.getSession().getAttribute("person")).getLastname() %></h1>
                 <div class="inform-question">
                     <p><label>DB:</label></p>
 
@@ -107,22 +105,7 @@
 
             </div>
             <div class="article">
-                <h2>Courses</h2>
-            </div>
 
-            <div class="skills">
-                <%
-                    if(((Person)request.getSession().getAttribute("person")).getCourses() != null){
-                        for(Course course: ((Person)request.getSession().getAttribute("person")).getCourses())
-                        { %>
-                <tr><td><%=course.getProvider()%></tr>
-                <td><%=course.getName()%></td></tr><%
-                    }
-                }
-            %>
-                    <div id="skills" class="add-skills">
-                    </div>
-            </div>
 
             <div class="article">
                 <h2>Skills</h2>
@@ -135,7 +118,8 @@
                             if(((Person)request.getSession().getAttribute("person")).getSkills() != null){
                                 for(String skill: ((Person)request.getSession().getAttribute("person")).getSkills())
                                 { %>
-                                     <tr><td><%=skill%></td></tr><%
+                        <span style="display: inline-block;"><label class="stiker"></label><label class="skill"><%=skill%></label></span><%
+
                                  }
                             }
                         %>
@@ -149,51 +133,115 @@
 
 
                 <div class="works">
-                    <%
-                        if(((Person)request.getSession().getAttribute("person")).getProjects() != null){
-                            for(Project project: ((Person)request.getSession().getAttribute("person")).getProjects())
-                            { %>
+                    <table>
+                        <%
+                            if(((Person)request.getSession().getAttribute("person")).getProjects() != null){
+                                for(Project project: ((Person)request.getSession().getAttribute("person")).getProjects())
+                                { %>
 
-                    <img class="add" src="resources/icon_green.png">
+                        <tr>
+                            <td><img class="add" src="resources/icon_green.png"></td>
+                            <td>
+                                <div class="add-skills-data">
+                                    <a href="http://<%=project.getReference()%>" style="color: royalblue;"><%=project.getReference()%></a><br>
 
-                    <div class="add-skills-data">
-                        <a href="http://<%=project.getReference()%>" style="color: royalblue;"><%=project.getReference()%></a><br>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="add-skills-data">
+                                    <label><%=project.getDescription()%></label><br>
 
-                    </div>
-                    <div class="add-skills-data">
-                        <label><%=project.getDescription()%></label><br>
+                                </div>
+                            </td>
+                        </tr>
+                        <%
+                                }
+                            } %>
 
-                    </div>
-                    <%
-                            }
-                        } %>
+                    </table>
                 </div>
+
+
+                <div class="article">
+                    <h2>Certificates</h2>
+                </div>
+
+                <div class="skills">
+                    <table>
+                        <%
+                            if(((Person)request.getSession().getAttribute("person")).getCourses() != null){
+                                for(Course course: ((Person)request.getSession().getAttribute("person")).getCourses())
+                                { %>
+                        <tr><td><img style="width: 160px; height: 150px;" src="resources/<%=course.getProvider()%>.png"></td>
+                            <td><h3 style="color: black !important; font: bold;"><%=course.getName()%></h3><br><label style="font-size: 16px;"><%=course.getProvider()%></label><br><label>2013</label></td>
+                        </tr>
+                        <%
+                                }
+                            }
+                        %>
+                    </table>
+                    <div id="skills" class="add-skills">
+                    </div>
+                </div>
+
+
 
             <div class="article">
                 <h2>Followings</h2>
             </div>
-
-
             <div class="works">
-                <%
-                    if(((Person)request.getSession().getAttribute("person")).getFollowings() != null){
-                        for(String following: ((Person)request.getSession().getAttribute("person")).getFollowings())
-                        { %>
-
-                <img class="add" src="resources/Company-Icon.png">
-                <div class="add-skills-data">
-                    <label><%=following%></label><br>
-                </div>
-                <%
-                        }
-                    } %>
+                <table>
+                    <%
+                        if(((Person)request.getSession().getAttribute("person")).getFollowings() != null){
+                            for(String following: ((Person)request.getSession().getAttribute("person")).getFollowings())
+                            { %>
+                    <tr>
+                    <td>
+                        <img class="add" src="resources/Company-Icon.png">
+                    </td>
+                    <td>
+                        <div class="add-skills-data">
+                            <label><%=following%></label><br>
+                        </div>
+                    </td>
+                    </tr>
+                    <%
+                            }
+                        } %>
+                </table>
             </div>
+
+
+            <div class="article">
+                <h2>Contacts</h2>
+            </div>
+            <div class="works">
+                    <table>
+                        <%
+                            if(((Person)request.getSession().getAttribute("person")).getFollowings() != null){
+                                for(String following: ((Person)request.getSession().getAttribute("person")).getFollowings())
+                                { %>
+                        <tr>
+                            <td>
+                                <img class="add" src="resources/Company-Icon.png">
+                            </td>
+                            <td>
+                                <div class="add-skills-data">
+                                    <label><%=following%></label><br>
+                                </div>
+                            </td>
+                        </tr>
+                        <%
+                                }
+                            } %>
+                    </table>
+            </div>
+
+
 
         </div>
     </div>
-
 </div>
-<div class="container">
 </div>
 </body>
 </html>

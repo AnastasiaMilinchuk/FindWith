@@ -1,4 +1,4 @@
-<%@ page import="zopa.Entities.Organization" %>
+<%@ page import="findwith.Entities.Organization" %>
 <%--
   Created by IntelliJ IDEA.
   User: milinchuk

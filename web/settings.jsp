@@ -1,8 +1,8 @@
-<%@ page import="zopa.Entities.Person" %>
+<%@ page import="findwith.Entities.Person" %>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="zopa.Entities.InnerEntities.Course" %>
-<%@ page import="zopa.Entities.InnerEntities.Project" %>
+<%@ page import="findwith.Entities.InnerEntities.Course" %>
+<%@ page import="findwith.Entities.InnerEntities.Project" %>
 <%--
   Created by IntelliJ IDEA.
   Person: milinchuk
@@ -15,8 +15,27 @@
 <head>
     <title></title>
     <link type="text/css" rel="stylesheet" href="resources/main.css">
-    <script src="resources/jquery.js"></script>
-    <script src="resources/update-page.js"></script>
+    <script src="javascript/jquery.js"></script>
+    <script src="javascript/delete-skill.js"></script>
+    <script src="javascript/date.js"></script>
+    <script src="javascript/update-page.js"></script>
+    <script src="javascript/industry.js"></script>
+    <script src="javascript/university.js"></script>
+    <script src="javascript/faculty.js"></script>
+    <script src="javascript/country.js"></script>
+    <script src="javascript/city.js"></script>
+    <script src="javascript/AddSkill.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            for(var i = 1920; i <= 2004; i++){
+                $("#graduateYear").append(' <option selected value="'+i+'">'+i+'</option>'); //add input box
+            }
+
+        });
+
+
+    </script>
 </head>
 <body>
 <div class="upperbox">
@@ -38,7 +57,6 @@
             </div>
 
             <div class="upperboxadd">
-                <input name="qwe"/>
                 <a>
                     <button type="submit" value="contacts" name="choose" id="contacts" class="accounts">
                         Contacts
@@ -67,64 +85,90 @@
 <div class="lowerbox">
     <div class="container">
         <div class="mainbox">
-            <div class="avatar">
-                <img align="middle" class="profile-photo" src="resources/profile.png">
-            </div>
-            <div class="description">
-                <input  value="<%= ((Person)request.getSession().getAttribute("person")).getFirstname() +  " " + ((Person)request.getSession().getAttribute("person")).getLastname() %>"/>
-               <br>
-                <div class="inform-question">
-                    <p><label>DB:</label></p>
+        <div class="block">
+                    <div class="avatar">
+                        <img align="middle" class="profile-photo" src="resources/profile.png">
+                    </div>
+                    <div class="description">
+                        <h1><%= ((Person)request.getSession().getAttribute("person")).getFirstname() +  " " + ((Person)request.getSession().getAttribute("person")).getLastname() %></h1>
+                        <br>
+                        <div class="inform-question">
+                            <p><label>DB:</label></p>
 
-                    <p><label>E-mail:</label></p>
+                            <p><label>E-mail:</label></p>
 
-                    <p><label>Phone:</label></p>
+                            <p><label>Phone:</label></p>
 
-                    <p><label>Industry:</label></p>
+                            <p><label>Industry:</label></p>
 
-                    <p><label>Education:</label></p>
+                            <p><label>Education:</label></p>
 
-                    <p><label>Location:</label></p>
+                            <p><label>Location:</label></p>
 
-                </div>
-                <div class="inform-answer">
-                    <% Date date = ((Person)request.getSession().getAttribute("person")).getBirthday();
-                        SimpleDateFormat ft = new SimpleDateFormat ("dd.MM.yyyy");
-                    %>
-                    <p><input value="<%=ft.format(date)%>"></p>
+                        </div>
+                        <div class="inform-answer">
+                            <% Date date = ((Person)request.getSession().getAttribute("person")).getBirthday();
+                                SimpleDateFormat ft = new SimpleDateFormat ("dd.MM.yyyy");
+                            %>
+                            <%--<p><input value="<%=ft.format(date)%>"></p>--%>
+                            <select name="day" id="bday" >
+                            </select>
+                            <select name="month" id="bmonth">
+                            </select>
+                            <select name="year" id="byear">
+                            </select>
 
-                    <p><input value="<%= ((Person)request.getSession().getAttribute("person")).getEmail()%>"></p>
+                            <p><input id="email" value="<%= ((Person)request.getSession().getAttribute("person")).getEmail()%>"></p>
 
-                    <p><input value="<%= ((Person)request.getSession().getAttribute("person")).getPhone()%>"></p>
+                            <p><input id="phone" value="<%= ((Person)request.getSession().getAttribute("person")).getPhone()%>"></p>
 
-                    <p><input value="<%= ((Person)request.getSession().getAttribute("person")).getIndustry() %>"></p>
+                            <p><input id="industry" list="industries" value="<%= ((Person)request.getSession().getAttribute("person")).getIndustry() %>">
+                                <datalist id="industries">
+                                </datalist></p>
 
-                    <p><input value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getUniversity() %>">
-                        <input value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getFaculty() %>">
-                        <input value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getGraduateYear() %>"></p>
+                            <p><input id="university" list="universities" value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getUniversity() %>">
+                                    <datalist id="universities">
+                                    </datalist>
+                                <input id="faculty" list="faculties" value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getFaculty() %>">
+                                    <datalist id="faculties">
+                                    </datalist>
+                                <select name="year" id="graduateYear" <%--value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getGraduateYear() %>"--%>></select></p>
 
-                    <p><input value="<%= ((Person)request.getSession().getAttribute("person")).getLocation().getCountry() %>"></p>
-                    <p><input value="<%= ((Person)request.getSession().getAttribute("person")).getLocation().getCity() %>"></p>
-                    <button class="submit">Update</button>
-                </div>
-                <%--<button class="change">Change</button>--%>
+                            <p><input id="country" list="countries" value="<%= ((Person)request.getSession().getAttribute("person")).getLocation().getCountry() %>"></p>
+                                <datalist id="countries">
+                                </datalist>
+                            <p><input id="city" list="cities" value="<%= ((Person)request.getSession().getAttribute("person")).getLocation().getCity() %>"></p>
+                                <datalist id="cities">
+                                </datalist>
+                            <button class="submit" id="change-profile">Update</button>
+                        </div>
+                        <%--<button class="change">Change</button>--%>
 
-            </div>
+                    </div>
+        </div>
+
+        <div class="block">
             <div class="article">
-                <h2>Courses</h2>
+                <h2>Certifications</h2>
             </div>
 
             <div class="skills">
                 <form action="addCourse" method="post">
-                    <%
-                        if(((Person)request.getSession().getAttribute("person")).getCourses() != null){
-                            for(Course course: ((Person)request.getSession().getAttribute("person")).getCourses())
-                            { %>
-                    <tr><td><%=course.getProvider()%></tr>
-                    <td><%=course.getName()%></td></tr><%
-                        }
-                    }
-                %>
+                    <table>
+                            <%
+                                if(((Person)request.getSession().getAttribute("person")).getCourses() != null){
+                                    for(Course course: ((Person)request.getSession().getAttribute("person")).getCourses())
+                                    { %>
+                            <tr><td><img style="width: 160px; height: 150px;" src="resources/<%=course.getProvider()%>.png"></td>
+                                <td><h3 style="color: black !important; font: bold;"><%=course.getName()%></h3>
+                                    <br><label style="font-size: 16px;"><%=course.getProvider()%></label>
+                                    <br><label>2013</label></td>
+                            </tr>
+                            <%
+                                }
+                            }
+                        %>
+                    </table>
                     <div class="add-skills">
                         <img class="add" src="resources/add-course.png">
                         <div class="add-skills-data">
@@ -140,55 +184,75 @@
                     </div>
                 </form>
             </div>
+        </div>
 
+        <div class="block">
             <div class="article">
                 <h2>Skills</h2>
             </div>
 
             <div class="skills">
-                <form action="${pageContext.request.contextPath}/addSkill" method="post">
-                    <%
-                        if(((Person)request.getSession().getAttribute("person")).getSkills() != null){
-                            for(String skill: ((Person)request.getSession().getAttribute("person")).getSkills())
-                            { %>
-                    <tr><td><%=skill%></td></tr><%
+
+                    <div id="skills">
+                        <%
+                            if(((Person)request.getSession().getAttribute("person")).getSkills() != null){
+                                int i = 0;
+                                for(String skill: ((Person)request.getSession().getAttribute("person")).getSkills())
+                                { %>
+                        <span style="display: inline-block;"><label name="stiker" id="<%=i%>"class="stiker">X</label><label id="<%=i%>skill"class="skill"><%=skill%></label></span><%
+                            i++;
+                            }
                         }
-                    }
-                %>
+                        %>
+                    </div>
                     <div class="add-skills">
                         <img class="add" src="resources/add-course.png">
                         <div class="add-skills-data">
                             <label>Skill:</label><br>
-                            <input name="skill" class="input-person-data" required placeholder="Java SE, Algorithms, etc.">
+                            <input name="skill" id="skill" class="input-person-data" required placeholder="Java SE, Algorithms, etc.">
                         </div>
-                        <button class="submit">Add</button>
+                        <button class="submit" id="add-skill">Add</button>
                     </div>
-                </form>
-            </div>
 
+            </div>
+        </div>
+
+
+        <div class="block">
             <div class="article">
-                <h2>Works</h2>
+                <h2>Projects</h2>
             </div>
 
             <form action="${pageContext.request.contextPath}/addWork" method="post">
-                <%
-                    if(((Person)request.getSession().getAttribute("person")).getProjects() != null){
-                        for(Project project: ((Person)request.getSession().getAttribute("person")).getProjects())
-                        { %>
+                <div class="works">
+                    <table>
+                        <%
+                            if(((Person)request.getSession().getAttribute("person")).getProjects() != null){
+                                for(Project project: ((Person)request.getSession().getAttribute("person")).getProjects())
+                                { %>
 
-                <img class="add" src="resources/icon_green.png">
+                        <tr>
+                            <td><img class="add" src="resources/icon_green.png"></td>
+                            <td>
+                                <div class="add-skills-data">
+                                    <a href="http://<%=project.getReference()%>" style="color: royalblue;"><%=project.getReference()%></a><br>
 
-                <div class="add-skills-data">
-                    <a href="http://<%=project.getReference()%>" style="color: royalblue;"><%=project.getReference()%></a><br>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="add-skills-data">
+                                    <label><%=project.getDescription()%></label><br>
 
+                                </div>
+                            </td>
+                        </tr>
+                        <%
+                                }
+                            } %>
+
+                    </table>
                 </div>
-                <div class="add-skills-data">
-                    <label><%=project.getDescription()%></label><br>
 
-                </div>
-                <%
-                        }
-                    } %>
                 <div class="works">
                     <img class="add" src="resources/add-course.png">
                     <div class="add-skills-data">
@@ -203,9 +267,14 @@
                 </div>
             </form>
         </div>
+       </div>
     </div>
 
 </div>
+
+
+
+
 <div class="container">
 </div>
 </body>
