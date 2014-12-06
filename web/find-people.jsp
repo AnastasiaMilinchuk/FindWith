@@ -45,21 +45,6 @@
         <br>
 
         <br>
-        <label>Find by education</label>
-        <br>
-        <input placeholder="Education"/>
-        <br>
-
-        <br>
-        <label>Find by email</label>
-        <br>
-        <input placeholder="Email"/>
-        <br>
-        <br>
-        <button>Find</button>
-        <br>
-
-        <br>
         <h3>Found:</h3>
         <div></div>
     </section>

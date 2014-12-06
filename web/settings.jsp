@@ -28,9 +28,13 @@
 
     <script>
         $(document).ready(function() {
-            for(var i = 1920; i <= 2004; i++){
+            for(var i = 1940; i <= 2020; i++){
                 $("#graduateYear").append(' <option selected value="'+i+'">'+i+'</option>'); //add input box
-            }
+            };
+
+            for(var i = 2000; i <= 2014; i++){
+                $("#course-year").append(' <option selected value="'+i+'">'+i+'</option>'); //add input box
+            };
 
         });
 
@@ -178,6 +182,11 @@
                         <div class="add-skills-data">
                             <label>Name of course:</label><br>
                             <input name="course" class="input-person-data" required placeholder="Introduction in algorithms, etc.">
+                        </div>
+                        <div class="add-skills-data">
+                            <label>Year:</label><br>
+                            <select name="course-year" id="course-year" class="input-person-data" required>
+                            </select>
                         </div>
 
                         <button class="submit">Add</button>

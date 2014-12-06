@@ -115,6 +115,10 @@
         <servlet-name>DeleteSkill</servlet-name>
         <url-pattern>/delete-skill</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCourse</servlet-name>
+        <url-pattern>/delete-course</url-pattern>
+    </servlet-mapping>
 
 
 
@@ -141,15 +145,15 @@
     </servlet>
     <servlet>
         <servlet-name>AddCourse</servlet-name>
-        <servlet-class>findwith.servlets.AddCourse</servlet-class>
+        <servlet-class>findwith.update.AddCourse</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddWork</servlet-name>
-        <servlet-class>findwith.servlets.AddWork</servlet-class>
+        <servlet-class>findwith.update.AddProject</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddSkill</servlet-name>
-        <servlet-class>findwith.servlets.AddSkill</servlet-class>
+        <servlet-class>findwith.update.AddSkill</servlet-class>
     </servlet>
 
     <servlet>
@@ -184,6 +188,10 @@
     <servlet>
         <servlet-name>DeleteSkill</servlet-name>
         <servlet-class>findwith.update.DeleteSkill</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCourse</servlet-name>
+        <servlet-class>findwith.update.DeleteCourse</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MongoSignup</servlet-name>

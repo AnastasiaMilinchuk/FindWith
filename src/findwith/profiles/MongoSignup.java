@@ -26,12 +26,12 @@ public class MongoSignup extends HttpServlet {
                 request.getSession().setAttribute("person", person);
                 request.getSession().setAttribute("login", true);
                 request.getSession().setAttribute("invalid", "");
-                request.getRequestDispatcher("/profile.jsp").forward(request,response);
+                response.sendRedirect("profile.jsp");
             }
             else{
                 request.getSession().setAttribute("invalid", "Invalid login or password");
                 request.getSession().setAttribute("login", "false");
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                response.sendRedirect("index.jsp");
             }
         }
 

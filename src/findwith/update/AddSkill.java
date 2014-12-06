@@ -1,4 +1,4 @@
-package findwith.servlets;
+package findwith.update;
 
 import com.mongodb.*;
 import findwith.Entities.Person;

@@ -1,9 +1,10 @@
-package findwith.servlets;
+package findwith.update;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
+import findwith.Entities.Person;
 import findwith.controllers.MongoDBController;
 
 import javax.servlet.ServletException;
@@ -20,18 +21,18 @@ public class AddCourse extends HttpServlet {
         MongoClient mongoClient = MongoDBController.getMongoDBClient("localhost");
         DB socialNetwork = MongoDBController.getMongoDataBase(mongoClient, "Social_Network");
         boolean auth = socialNetwork.authenticate("milinchuk","1111".toCharArray());
-        DBCollection skills = MongoDBController.getMongoDBCollection(socialNetwork, "skills");
+        DBCollection skills = MongoDBController.getMongoDBCollection(socialNetwork, "users");
         if(request.getSession().getAttribute("login") != null){
-        BasicDBObject newCourse = new BasicDBObject();
-        newCourse.put("provider", request.getParameter("provider").toString());
-        newCourse.put("course", request.getParameter("course").toString());
-        newCourse.put("progress", request.getParameter("progress").toString());
-        newCourse.put("user", request.getSession().getAttribute("login"));
+            BasicDBObject find = new BasicDBObject("login", ((Person)request.getSession().getAttribute("person")).getLogin());
+            BasicDBObject newCourse = new BasicDBObject("provider", request.getParameter("provider").toString()).
+                    append("name", request.getParameter("course").toString()).
+                    append("year", request.getParameter("course-year"));
 
-        skills.save(newCourse);
-
+            BasicDBObject add = new BasicDBObject("courses", newCourse);
+            BasicDBObject course = new BasicDBObject("$push", add);
+            skills.update(find, course);
         }
-        request.getRequestDispatcher("/profile.jsp").forward(request, response);
+        response.sendRedirect("/settings.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
