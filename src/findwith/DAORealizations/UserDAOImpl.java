@@ -82,7 +82,7 @@ public class UserDAOImpl implements UserDAO {
                 Course course = new Course();
                 course.setProvider((String)obj.get("provider"));
                 course.setName((String)obj.get("name"));
-                course.setYear((Integer)obj.get("year"));
+                course.setYear(Integer.parseInt((String)obj.get("year")));
                 courses.add(course);
             }
         }
