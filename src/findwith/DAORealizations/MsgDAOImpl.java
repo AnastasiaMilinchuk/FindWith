@@ -1,14 +1,13 @@
 package findwith.DAORealizations;
 
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.MongoClient;
+import com.mongodb.*;
 import findwith.Constants;
 import findwith.DAO.MsgDAO;
 import findwith.Entities.Message;
 import findwith.controllers.MongoDBController;
 
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,30 +32,40 @@ public class MsgDAOImpl implements MsgDAO {
     }
 
     @Override
-    public List<Message> getInboxMessagesForUser(String id) {
-        return null;
+    public List<Message> getInboxMessagesForUser(String email) {
+        return getMessagesByDirection("to",email);
+
     }
 
     @Override
-    public List<Message> getOutboxMessagesForUser(String id) {
-        return null;
+    public List<Message> getOutboxMessagesForUser(String email) {
+        return getMessagesByDirection("from",email);
     }
 
     @Override
     public boolean sendMessage(Message msg) {
+        BasicDBObject newMessage = new BasicDBObject("from", msg.getFromEmail()).
+                append("to", msg.getToEmail()).
+                append("subject", msg.getSubject()).
+                append("text", msg.getText());
+        messages.save(newMessage);
+        return true;
+    }
+    private List<Message> getMessagesByDirection(String direction, String email){
+        BasicDBObject message = new BasicDBObject();
+        message.append(direction, email);
+        DBCursor dbCursor = messages.find(message);
+        ArrayList<Message> result = new ArrayList<Message>();
 
-//        BasicDBObject newMessage = new BasicDBObject("login", msg).
-//                append("password", person.getPassword()).
-//                append("firstname", person.getFirstname()).
-//                append("secondname", person.getLastname()).
-//                append("birthday", person.getBirthday()).
-//                append("location", location).
-//                append("education", education).
-//                append ("email", person.getEmail()).
-//                append("phone", person.getPhone()).
-//                append("industry", person.getIndustry());
-
-//        messages.save(newMessage);
-        return false;
+        while(dbCursor.hasNext()){
+            DBObject next = dbCursor.next();
+            Message temp = new Message();
+            temp.setText((String) next.get("text"));
+            temp.setFromEmail((String) next.get("from"));
+            temp.setText((String) next.get("to"));
+            temp.setText((String) next.get("subject"));
+            result.add(temp);
+        }
+        return result;
     }
 }

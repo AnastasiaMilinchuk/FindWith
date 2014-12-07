@@ -1,10 +1,10 @@
 package findwith.servlets;
 
+import findwith.Constants;
 import findwith.DAORealizations.MsgDAOImpl;
 import findwith.Entities.Message;
 import findwith.Entities.Person;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,15 +31,9 @@ public class SendMessageServlet extends HttpServlet {
         messageForSend.setFromEmail(currentUser.getEmail());
         messageForSend.setSubject(request.getParameter("msgSubject"));
         messageForSend.setText(request.getParameter("msgText"));
-        msgDAO.sendMessage(messageForSend) ;
-
-
-
-//        response.sendRedirect(request.get);
-//        response.getOutputStream().print(request.getParameter("msgTo"));
-//        response.getOutputStream().print(request.getParameter("msgSubject"));
-//        response.getOutputStream().print(request.getParameter("msgText"));
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/msg/inbox.jsp");
-        dispatcher.forward(request, response);
+        if(msgDAO.sendMessage(messageForSend)){
+            request.getSession().setAttribute(Constants.MESSAGE_WAS_SENT,true);
+        }
+        response.sendRedirect("/messages.jsp");
     }
 }

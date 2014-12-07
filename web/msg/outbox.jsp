@@ -1,3 +1,7 @@
+<%@ page import="findwith.Entities.Person" %>
+<%@ page import="findwith.DAORealizations.MsgDAOImpl" %>
+<%@ page import="findwith.Entities.Message" %>
+<%@ page import="java.util.List" %>
 <%--
   Created by IntelliJ IDEA.
   User: milinchuk
@@ -12,38 +16,26 @@
 </head>
 <body>
 
-    <section>
-        <h2>Find people</h2>
-        <label>Find by name</label>
-        <br>
-        <input placeholder="First Name"/><br>
-        <input placeholder="Last Name"/>
-        <br>
+<div class="skills">
 
-        <br>
-        <label>Знайти за спеціалізацією</label>
-        <br>
-        <input placeholder="Industry"/>
-        <br>
+    <div class="add-skills">
+        <%
+            MsgDAOImpl msgDAO = new MsgDAOImpl();
+            msgDAO.getOutboxMessagesForUser(((Person)request.getSession().getAttribute("person")).getEmail());
+            List<Message> outBoxMessages = msgDAO.getOutboxMessagesForUser(((Person) request.getSession().getAttribute("person")).getEmail());
+            out.print(outBoxMessages);
+            out.print(outBoxMessages.size());
 
-        <br>
-        <label>Find by skills</label>
-        <br>
-        <input placeholder="Skill">
-        <br>
 
-        <br>
-        <label>Find by location</label>
-        <br>
-        <input placeholder="Country">
-        <br>
-        <input placeholder="City"/>
-        <br>
+                for(Message msg: outBoxMessages)
+                { %>
+        <span style="display: inline-block;"><label class="stiker"></label><label class="skill"><%=msg%></label></span><%
 
-        <br>
-        <h3>Found:</h3>
-        <div></div>
-    </section>
+            }
+    %>
+    </div>
+
+</div>
 
 
     <footer>
