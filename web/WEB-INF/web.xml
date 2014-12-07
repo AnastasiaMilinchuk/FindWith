@@ -108,8 +108,12 @@
         <url-pattern>/delete-skill</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>DeleteCourse</servlet-name>
-        <url-pattern>/delete-course</url-pattern>
+    <servlet-name>DeleteCourse</servlet-name>
+    <url-pattern>/delete-course</url-pattern>
+</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sendMessage</servlet-name>
+        <url-pattern>/sendMessage</url-pattern>
     </servlet-mapping>
 
 
@@ -126,6 +130,10 @@
     <servlet>
         <servlet-name>logout</servlet-name>
         <servlet-class>findwith.servlets.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>sendMessage</servlet-name>
+        <servlet-class>findwith.servlets.SendMessageServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FindPeople</servlet-name>
