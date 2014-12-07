@@ -22,7 +22,7 @@ public class DeleteCourse extends HttpServlet {
         if( request.getSession().getAttribute("login") != null){
             Person person = (Person)(request.getSession().getAttribute("person"));
             List<String> skills = person.getSkills();
-            if(skills.contains(request.getParameter("skill").toString())){
+            if(skills.contains(request.getParameter("").toString())){
                 MongoClient mongoClient = MongoDBController.getMongoDBClient("localhost");
                 DB socialNetwork = MongoDBController.getMongoDataBase(mongoClient, "Social_Network");
                 DBCollection users = MongoDBController.getMongoDBCollection(socialNetwork, "users");
