@@ -14,10 +14,6 @@
     </filter-mapping>
 
     <servlet>
-        <servlet-name>Servlet</servlet-name>
-        <servlet-class>findwith.servlets.Servlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Signup</servlet-name>
         <servlet-class>findwith.registration.Signup</servlet-class>
     </servlet>
@@ -33,10 +29,6 @@
         <servlet-name>Profile</servlet-name>
         <servlet-class>findwith.profiles.Profile</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>Servlet</servlet-name>
-        <url-pattern>/Servlet</url-pattern>
-    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>Signup</servlet-name>
@@ -84,8 +76,8 @@
         <url-pattern>/find-people</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Menu</servlet-name>
-        <url-pattern>/menu</url-pattern>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateProfile</servlet-name>
@@ -132,8 +124,8 @@
         <servlet-class>findwith.update.UpdateProfile</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Menu</servlet-name>
-        <servlet-class>findwith.servlets.Menu</servlet-class>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>findwith.servlets.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FindPeople</servlet-name>

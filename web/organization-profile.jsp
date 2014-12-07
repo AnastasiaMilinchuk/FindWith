@@ -13,49 +13,7 @@
     <link type="text/css" rel="stylesheet" href="resources/main.css">
 </head>
 <body>
-<div class="upperbox">
-    <div class="upperboxfill">
-        <div class="upperboxadd">
-            <span style="margin:0px 10px 0px 37px;color:#717171;"> |  </span>
-            <a><span class="accounts">
-                Logout
-            </span></a>
-        </div>
-        <div class="upperboxadd">
-            <a>
-            <span class="accounts">
-               Settings
-            </span>
-            </a>
-        </div>
-
-        <div class="upperboxadd">
-            <a>
-            <span class="accounts">
-                Contacts
-            </span>
-            </a>
-        </div>
-        <div class="upperboxadd">
-            <a>
-            <span class="accounts">
-                Messages
-            </span>
-            </a>
-        </div>
-        <div class="upperboxadd">
-            <a>
-            <span class="accounts">
-                Profile
-            </span>
-            </a>
-        </div>
-
-
-
-    </div>
-</div>
-
+<jsp:include page="upperBox.jsp"/>
 
 <div class="lowerbox">
     <div class="container">

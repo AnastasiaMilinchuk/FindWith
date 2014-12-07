@@ -7,13 +7,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by milinchuk on 12/1/14.
+ * Created by click on 12/7/2014.
  */
-public class Menu extends HttpServlet{
+public class LogoutServlet  extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        processServlet(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processServlet(request,response);
+    }
+
+    private void processServlet (HttpServletRequest request, HttpServletResponse response) throws IOException {
+                       request.getSession().setAttribute("login", null);
+        response.sendRedirect("/index.jsp");
     }
 }

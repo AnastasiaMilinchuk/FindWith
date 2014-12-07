@@ -11,10 +11,7 @@
     <title></title>
 </head>
 <body>
-    <header>
-
-    </header>
-
+    <jsp:include page="upperBox.jsp"/>
 
     <section>
         <h2>Find people</h2>
