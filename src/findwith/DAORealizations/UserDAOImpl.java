@@ -82,7 +82,7 @@ public class UserDAOImpl implements UserDAO {
                 Course course = new Course();
                 course.setProvider((String)obj.get("provider"));
                 course.setName((String)obj.get("name"));
-                course.setYear(Integer.parseInt((String)obj.get("year")));
+                course.setYear(Integer.parseInt((String) obj.get("year")));
                 courses.add(course);
             }
         }
@@ -97,7 +97,14 @@ public class UserDAOImpl implements UserDAO {
         }
         newPerson.setFollowings(followings);
 
-
+        List<String> contacts = new LinkedList<String>();
+        BasicDBList contcts = (BasicDBList)u.get("contacts");
+        if(contcts != null){
+            for(Object c: contcts){
+                contacts.add((String)c);
+            }
+        }
+        newPerson.setContacts(contacts);
 
         return newPerson;
     }

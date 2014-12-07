@@ -313,3 +313,24 @@
         border-bottom-left-radius: 3px;
         border-top-left-radius: 3px;
     }
+    .delete-course{
+        height: 80%;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: cadetblue;
+        color: white;
+    }
+    .delete-project{
+        height: 80%;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: cadetblue;
+        color: white;
+    }
+    .delete-following{
+        height: 80%;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: cadetblue;
+        color: white;
+    }

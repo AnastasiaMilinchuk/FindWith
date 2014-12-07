@@ -9,12 +9,12 @@
 <html>
 <head>
     <title></title>
+    <script src="javascript/add-skill-to-find.js"></script>
 </head>
 <body>
     <jsp:include page="upperBox.jsp"/>
 
     <section>
-        <h2>Find people</h2>
         <label>Find by name</label>
         <br>
         <input placeholder="First Name"/><br>
@@ -29,8 +29,11 @@
 
         <br>
         <label>Find by skills</label>
+        <div id="skills">
+        </div>
         <br>
         <input placeholder="Skill">
+        <button id="add-skill">Add skill</button>
         <br>
 
         <br>
@@ -41,6 +44,7 @@
         <input placeholder="City"/>
         <br>
 
+         <button>Find</button>
         <br>
         <h3>Found:</h3>
         <div></div>

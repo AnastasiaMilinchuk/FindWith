@@ -6,7 +6,7 @@ package findwith.Entities.InnerEntities;
 public class Course {
     private String provider;
     private String name;
-    private int year;
+    private Integer year;
 
     public String getProvider() {
         return provider;

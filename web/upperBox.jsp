@@ -30,7 +30,7 @@
     </div>
 
     <div class="upperboxadd">
-      <a>
+      <a href="find-people.jsp">
         <button type="submit" value="contacts" name="choose" id="contacts" class="accounts">
           Contacts
         </button>

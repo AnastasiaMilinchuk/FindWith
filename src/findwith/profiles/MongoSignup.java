@@ -19,7 +19,7 @@ public class MongoSignup extends HttpServlet {
         DB socialNetwork = MongoDBController.getMongoDataBase(mongoClient, "Social_Network");
         boolean auth = socialNetwork.authenticate("milinchuk","1111".toCharArray());
 */
-        if(request.getSession().getAttribute("user") == null){
+        if(request.getSession().getAttribute("person") == null){
             UserDAOImpl userDAO = new UserDAOImpl("localhost","Social_Network", "users");
             if(userDAO.isExist(request.getParameter("email"), request.getParameter("password"))){
                 Person person = userDAO.getUser(request.getParameter("email").toString());
@@ -33,6 +33,9 @@ public class MongoSignup extends HttpServlet {
                 request.getSession().setAttribute("login", "false");
                 response.sendRedirect("index.jsp");
             }
+        }
+        else {
+            response.sendRedirect("profile.jsp");
         }
 
     }

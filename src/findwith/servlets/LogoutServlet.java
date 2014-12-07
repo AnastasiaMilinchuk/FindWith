@@ -17,6 +17,7 @@ public class LogoutServlet  extends HttpServlet {
 
     private void processServlet (HttpServletRequest request, HttpServletResponse response) throws IOException {
                        request.getSession().setAttribute("login", null);
+                       request.getSession().setAttribute("person", null);
         response.sendRedirect("/index.jsp");
     }
 }

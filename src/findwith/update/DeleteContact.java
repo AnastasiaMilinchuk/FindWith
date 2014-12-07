@@ -17,21 +17,21 @@ import java.util.List;
 /**
  * Created by milinchuk on 12/7/14.
  */
-public class DeleteCourse extends HttpServlet {
+public class DeleteContact extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if( request.getSession().getAttribute("login") != null){
             Person person = (Person)(request.getSession().getAttribute("person"));
-            List<String> skills = person.getSkills();
-            if(skills.contains(request.getParameter("").toString())){
+            List<String> contacts = person.getContacts();
+            if(contacts.contains(request.getParameter("contact").toString())){
                 MongoClient mongoClient = MongoDBController.getMongoDBClient("localhost");
                 DB socialNetwork = MongoDBController.getMongoDataBase(mongoClient, "Social_Network");
                 DBCollection users = MongoDBController.getMongoDBCollection(socialNetwork, "users");
                 BasicDBObject findQuery = new BasicDBObject("login",
                         ((Person)request.getSession().getAttribute("person")).getLogin());
-                BasicDBObject item = new BasicDBObject("skills", request.getParameter("skill").toString());
+                BasicDBObject item = new BasicDBObject("contacts", request.getParameter("contact").toString());
                 BasicDBObject updateQuery = new BasicDBObject("$pull", item);
                 users.update(findQuery, updateQuery);
-                ((Person) request.getSession().getAttribute("person")).getCourses().remove(request.getParameter("course").toString());
+                ((Person) request.getSession().getAttribute("person")).getContacts().remove(request.getParameter("contact").toString());
                 response.setContentType("application/json");
                 response.getWriter().write("true");
             }

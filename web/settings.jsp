@@ -25,6 +25,9 @@
     <script src="javascript/country.js"></script>
     <script src="javascript/city.js"></script>
     <script src="javascript/AddSkill.js"></script>
+    <script src="javascript/delete-contact.js"></script>
+    <script src="javascript/delete-following.js"></script>
+    <script src="javascript/delete-project.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -195,25 +198,29 @@
                     <table>
                         <%
                             if(((Person)request.getSession().getAttribute("person")).getProjects() != null){
+                                int i = 0;
                                 for(Project project: ((Person)request.getSession().getAttribute("person")).getProjects())
                                 { %>
 
-                        <tr>
+                        <tr id="<%=i%>projectdel">
                             <td><img class="add" src="resources/icon_green.png"></td>
                             <td>
                                 <div class="add-skills-data">
-                                    <a href="http://<%=project.getReference()%>" style="color: royalblue;"><%=project.getReference()%></a><br>
-
+                                    <a href="http://<%=project.getReference()%>" style="color: royalblue;"
+                                       id="<%=i%>projectreference"><%=project.getReference()%></a><br>
                                 </div>
                             </td>
                             <td>
                                 <div class="add-skills-data">
-                                    <label><%=project.getDescription()%></label><br>
-
+                                    <label id="<%=i%>projectdescription"><%=project.getDescription()%></label><br>
                                 </div>
+                            </td>
+                            <td>
+                                <div id="<%=i%>project" class="delete-project">X</div>
                             </td>
                         </tr>
                         <%
+                                    i++;
                                 }
                             } %>
 
@@ -233,6 +240,70 @@
                     <button class="submit">Add</button>
                 </div>
             </form>
+        </div>
+
+        <div class="article">
+            <h2>Followings</h2>
+        </div>
+        <div class="works">
+            <table>
+                <%
+                    if(((Person)request.getSession().getAttribute("person")).getFollowings() != null){
+                        int i = 0;
+                        for(String following: ((Person)request.getSession().getAttribute("person")).getFollowings())
+                        { %>
+                <tr id="<%=i%>followdel">
+                    <td>
+                        <img class="add" src="resources/Company-Icon.png">
+                    </td>
+                    <td>
+                        <div class="add-skills-data">
+                            <label id="<%=i%>followval"><%=following%></label><br>
+                        </div>
+                    </td>
+                    <td id="<%=i%>follow" name="delete-following"  class="delete-following" >
+                        X
+                    </td>
+                </tr>
+                <%
+                            i++;
+                        }
+                    } %>
+            </table>
+        </div>
+
+
+        <div class="article">
+            <h2>Contacts</h2>
+        </div>
+        <div class="works">
+            <table>
+                <%
+                    if(((Person)request.getSession().getAttribute("person")).getContacts() != null){
+                        int i = 0;
+                        for(String contact: ((Person)request.getSession().getAttribute("person")).getContacts())
+                        { %>
+
+                        <tr id="<%=i%>contactdel">
+                            <td>
+                                <img class="add" src="resources/profile-icon.png">
+                            </td>
+                            <td>
+                                <div class="add-skills-data">
+                                    <label id="<%=i%>contactval"><%=contact%></label><br>
+                                </div>
+                            </td>
+                            <td id="<%=i%>contact" name="delete-contact" class="delete-contact">
+                                X
+                            </td>
+                        </tr>
+
+                <%
+                            i++;
+                        }
+                    }
+                %>
+            </table>
         </div>
        </div>
     </div>

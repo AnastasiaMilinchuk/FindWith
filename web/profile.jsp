@@ -178,12 +178,12 @@
             <div class="works">
                     <table>
                         <%
-                            if(((Person)request.getSession().getAttribute("person")).getFollowings() != null){
-                                for(String following: ((Person)request.getSession().getAttribute("person")).getFollowings())
+                            if(((Person)request.getSession().getAttribute("person")).getCourses() != null){
+                                for(String following: ((Person)request.getSession().getAttribute("person")).getContacts())
                                 { %>
                         <tr>
                             <td>
-                                <img class="add" src="resources/Company-Icon.png">
+                                <img class="add" src="resources/profile-icon.png">
                             </td>
                             <td>
                                 <div class="add-skills-data">
