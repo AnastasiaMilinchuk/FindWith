@@ -15,14 +15,22 @@
 <br/>
 <br/>
 <form id="new_message" action="/sendMessage" method="post">
-       <label>To:</label>
-       <input type="text" name="msgTo"/><br>
-       <label>Subject:</label>
-       <input type="text" name="msgSubject"/>
-       <label>Text:</label>
-       <input type="text" name="msgText"/>
-       <input type="submit" value="Send">
-    <form/>
+    <div class="text-input-container">
+       <label class="new-message-label">To:</label>
+       <input type="text" name="msgTo" class="text-input"/>
+    </div>
+    <div class="text-input-container">
+       <label class="new-message-label">Subject:</label>
+       <input type="text" name="msgSubject" class="text-input"/>
+    </div>
+    <div class="text-input-container">
+       <label class="new-message-label">Text:</label>
+       <input type="text" name="msgText"class="text-input"/>
+    </div>
+    <div>
+       <input type="submit" class="penal-button" value="Send"/>
+    </div>
+    </form>
 
        <footer>
     </footer>

@@ -1,0 +1,39 @@
+.message-radio{
+    display: none;
+}
+.radio-label{
+    display:inline-block;
+    background-color:#C8CBE7;
+    padding:4px 11px;
+    font-family:Arial;
+    font-size:20px;
+    margin: 30px;
+}
+.penal-button{
+    background-color: #6383A8;
+    width: 100px;
+    height: 30px;
+    border: none;
+    color: #fefffc;
+    margin-top: 15px;
+}
+
+.new-message-label{
+    font-family: Arial;
+    font-size: 16px;
+}
+.new-message-layout{
+    display: block
+    padding-left: 100px;
+}
+
+.text-input-container{
+    margin: 20px;
+}
+
+.text-input{
+    width: 300px;
+    position: absolute;
+    left: 150px;
+  
+}
