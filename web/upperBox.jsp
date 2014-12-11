@@ -17,6 +17,7 @@
   <div class="upperboxfill">
 
     <div class="upperboxadd">
+      <div></div>
       <span style="margin:0px 10px 0px 37px;color:#717171;"> |  </span>
       <a href="/logout"><span id="logout" class="accounts">
                 Logout
