@@ -455,6 +455,7 @@
         float: left;
         width: auto;
         height: auto;
+        margin-left: 15px;
     }
     .card-photo{
         width: auto;
@@ -464,8 +465,27 @@
     .card{
         position: relative;
         float: left;
-        width: auto;
+        width: 100%;
         height: auto;
         padding: 3px;
         margin: 10px;
+        background-color: rgb(226, 230, 247);
+    }
+    .add-to-friends{
+        background-color: rgb(99, 131, 168);
+        width: auto;
+        height: 25px;
+        border: medium none;
+        color: rgb(254, 255, 252);
+        margin-top: 15px;
+        position: relative;
+        float: left;
+    }
+    .people{
+        position: relative;
+        float: left;
+        margin-left: 5%;
+
+        height: auto;
+        width: auto;
     }

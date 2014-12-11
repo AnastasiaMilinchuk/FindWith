@@ -201,10 +201,8 @@
                                             <label><%=contact.getEmail()%></label>
                                        </div>
                                     </div>
-
-                                    <div class="delete-contact">
-                                    </div>
                             </div>
+
                             </td>
                         </tr>
                             <%

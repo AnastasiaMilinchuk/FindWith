@@ -75,9 +75,11 @@
     <section class="section">
             <h3 class="search-type">Result</h3>
             <div class="result">
-                <table id="found-people">
+                <div class="people">
+                    <table id="found-people">
 
-                </table>
+                    </table>
+                </div>
             </div>
     </section>
 
