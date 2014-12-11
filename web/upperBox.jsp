@@ -10,6 +10,7 @@
 <head>
     <title></title>
   <link type="text/css" rel="stylesheet" href="resources/main.css">
+  <link href="/css/index.css" rel="stylesheet">
 </head>
 <body>
 <div class="upperbox">
