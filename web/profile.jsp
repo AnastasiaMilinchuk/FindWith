@@ -133,7 +133,7 @@
                             if(((Person)request.getSession().getAttribute("person")).getCourses() != null){
                                 for(Course course: ((Person)request.getSession().getAttribute("person")).getCourses())
                                 { %>
-                        <tr><td><img style="width: 160px; height: 150px;" src="resources/<%=course.getProvider()%>.png"></td>
+                        <tr><td><img class="photo" src="resources/<%=course.getProvider()%>.png"></td>
                             <td><h3 style="color: black !important; font: bold;"><%=course.getName()%></h3><br><label style="font-size: 16px;"><%=course.getProvider()%></label><br><label>2013</label></td>
                         </tr>
                         <%
@@ -179,21 +179,32 @@
             <div class="works">
                     <table>
                         <%
-                            if((request.getSession().getAttribute("contacts")) != null){
-                                for(Contact contact: (List<Contact>)request.getSession().getAttribute("contacts"))
+                            if(((request.getSession().getAttribute("person"))) != null){
+                                if(((Person)(request.getSession().getAttribute("person"))).getContactProfiles() != null)
+                                for(Contact contact: (List<Contact>)((Person)request.getSession().getAttribute("person")).getContactProfiles())
                                 { %>
                         <tr>
                             <td>
-                                <img class="add" src="<%=contact.getPhoto()%>">
-                            </td>
-                            <td>
-                               <a href="profile?id=<%=contact.get_id()%>">
-                                   <h3>
-                                       <%=(contact.getFirstname() + " " + contact.getLastname())%>
-                                    </h3>
-                               </a>
-                                <br><br>
-                                <label><%=contact.getEmail()%></label>
+                           <div class="card">
+                                    <div class="card-photo">
+                                        <img class="photo" src="<%=contact.getPhoto()%>">
+                                    </div>
+
+                                    <div class="card-info" >
+                                       <div class="info">
+                                           <a href="profile?id=<%=contact.get_id()%>">
+                                               <h3>
+                                                   <%=(contact.getFirstname() + " " + contact.getLastname())%>
+                                                </h3>
+                                           </a>
+                                           <br>
+                                            <label><%=contact.getEmail()%></label>
+                                       </div>
+                                    </div>
+
+                                    <div class="delete-contact">
+                                    </div>
+                            </div>
                             </td>
                         </tr>
                             <%

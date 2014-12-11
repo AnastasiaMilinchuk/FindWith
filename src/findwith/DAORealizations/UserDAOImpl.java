@@ -108,6 +108,8 @@ public class UserDAOImpl implements UserDAO {
         }
         newPerson.setContacts(contacts);
 
+        newPerson.setContactProfiles(getContacts(contacts));
+
         return newPerson;
     }
     @Override
@@ -140,20 +142,22 @@ public class UserDAOImpl implements UserDAO {
             BasicDBObject o = new BasicDBObject("_id", _id);
             contacts.add(o);
         }
-        BasicDBObject query = new BasicDBObject("$or", contacts);
-        DBCursor result = users.find(query);
         List<Contact> contactList = new LinkedList<Contact>();
-        while(result.hasNext()){
-            Contact c = new Contact();
-            DBObject contact = result.next();
-            c.setFirstname(contact.get("firstname").toString());
-            c.setLastname(contact.get("secondname").toString());
-            c.setEmail(contact.get("email").toString());
-            c.setPhoto(contact.get("photo").toString());
-            c.set_id((contact.get("_id")).toString());
-            contactList.add(c);
-        }
+        if(!contacts.isEmpty()){
+            BasicDBObject query = new BasicDBObject("$or", contacts);
+            DBCursor result = users.find(query);
 
+            while(result.hasNext()){
+                Contact c = new Contact();
+                DBObject contact = result.next();
+                c.setFirstname(contact.get("firstname").toString());
+                c.setLastname(contact.get("secondname").toString());
+                c.setEmail(contact.get("email").toString());
+                c.setPhoto(contact.get("photo").toString());
+                c.set_id((contact.get("_id")).toString());
+                contactList.add(c);
+            }
+        }
         return contactList;
     }
 

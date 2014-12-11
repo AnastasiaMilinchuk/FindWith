@@ -131,6 +131,10 @@
         <servlet-name>AddToContact</servlet-name>
         <url-pattern>/add-to-contact</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyProfile</servlet-name>
+        <url-pattern>/my-profile</url-pattern>
+    </servlet-mapping>
 
 
 
@@ -226,6 +230,10 @@
     <servlet>
         <servlet-name>AddToContact</servlet-name>
         <servlet-class>findwith.update.AddToContact</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MyProfile</servlet-name>
+        <servlet-class>findwith.profiles.MyProfile</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MongoSignup</servlet-name>

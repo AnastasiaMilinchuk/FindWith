@@ -20,10 +20,8 @@ public class MongoSignup extends HttpServlet {
             if(userDAO.isExist(request.getParameter("email"), request.getParameter("password"))){
                 Person person = userDAO.getUser(request.getParameter("email").toString());
                 request.getSession().setAttribute("person", person);
-
-                // get contacts from mongo
-                request.getSession().setAttribute("contacts", userDAO.getContacts(person.getContacts()));
                 request.getSession().setAttribute("login", true);
+                request.getSession().setAttribute("user", request.getParameter("email").toString());
                 request.getSession().setAttribute("invalid", "");
                 response.sendRedirect("profile.jsp");
             }

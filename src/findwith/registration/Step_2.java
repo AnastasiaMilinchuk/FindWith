@@ -20,7 +20,7 @@ public class Step_2 extends HttpServlet {
         person.setEmail(request.getParameter("email"));
         person.setPassword(request.getParameter("password"));
         person.setLogin(request.getParameter("email"));
-
+        person.setPhoto("profile-icon.png");
         request.getSession().setAttribute("person", person);
         response.sendRedirect("signup-step2.jsp");
     }

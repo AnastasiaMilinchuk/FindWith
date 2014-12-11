@@ -3,6 +3,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="findwith.Entities.InnerEntities.Course" %>
 <%@ page import="findwith.Entities.InnerEntities.Project" %>
+<%@ page import="findwith.Entities.Contact" %>
 <%--
   Created by IntelliJ IDEA.
   Person: milinchuk
@@ -124,7 +125,7 @@
                                 if(((Person)request.getSession().getAttribute("person")).getCourses() != null){
                                     for(Course course: ((Person)request.getSession().getAttribute("person")).getCourses())
                                     { %>
-                            <tr><td><img style="width: 160px; height: 150px;" src="resources/<%=course.getProvider()%>.png"></td>
+                            <tr><td><img class="photo" src="resources/<%=course.getProvider()%>.png"></td>
                                 <td><h3 style="color: black !important; font: bold;"><%=course.getName()%></h3>
                                     <br><label style="font-size: 16px;"><%=course.getProvider()%></label>
                                     <br><label>2013</label></td>
@@ -279,18 +280,24 @@
         <div class="works">
             <table>
                 <%
-                    if(((Person)request.getSession().getAttribute("person")).getContacts() != null){
+                    if(((Person)request.getSession().getAttribute("person")).getContactProfiles() != null){
                         int i = 0;
-                        for(String contact: ((Person)request.getSession().getAttribute("person")).getContacts())
+                        for(Contact contact: ((Person)request.getSession().getAttribute("person")).getContactProfiles())
                         { %>
 
                         <tr id="<%=i%>contactdel">
                             <td>
-                                <img class="add" src="resources/profile-icon.png">
+                                <img class="photo" src="<%=contact.getPhoto()%>">
                             </td>
                             <td>
-                                <div class="add-skills-data">
-                                    <label id="<%=i%>contactval"><%=contact%></label><br>
+                                <div class="info">
+                                    <a href="profile?id=<%=contact.get_id()%>">
+                                        <h3>
+                                            <%=(contact.getFirstname() + " " + contact.getLastname())%>
+                                        </h3>
+                                    </a>
+                                    <br>
+                                    <label><%=contact.getEmail()%></label>
                                 </div>
                             </td>
                             <td id="<%=i%>contact" name="delete-contact" class="delete-contact">

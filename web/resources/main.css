@@ -15,7 +15,8 @@
         font-family: Garamond,serif;
         letter-spacing: 2px;
         font-weight: normal;
-        color: #414141;
+        /*color: #414141;*/
+        color: black;
         text-rendering: optimizelegibility;
     }
     .controls{
@@ -319,6 +320,21 @@
         background-color: cadetblue;
         color: white;
     }
+    .delete-contact{
+        /*height: 80%;*/
+        /*padding-left: 10px;*/
+        /*padding-right: 10px;*/
+        /*background-color: cadetblue;*/
+        /*color: white;*/
+        height: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: cadetblue;
+        color: white;
+        width: 7%;
+        position: relative;
+        float: left;
+    }
     .delete-project{
         height: 80%;
         padding-left: 10px;
@@ -424,4 +440,32 @@
         height: auto;
         margin-top: 5px;
         margin-bottom: 5px;
+    }
+    .info{
+        padding-top: 0px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .infocard{
+        margin: 7px;
+        background-color: rgb(226, 230, 247);
+    }
+    .card-info{
+        position: relative;
+        float: left;
+        width: auto;
+        height: auto;
+    }
+    .card-photo{
+        width: auto;
+        position: relative;
+        float: left;
+    }
+    .card{
+        position: relative;
+        float: left;
+        width: auto;
+        height: auto;
+        padding: 3px;
+        margin: 10px;
     }

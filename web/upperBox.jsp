@@ -44,7 +44,7 @@
       </a>
     </div>
     <div class="upperboxadd">
-      <a href="profile.jsp">
+      <a href="my-profile">
         <button id="profile" class="accounts">
           Profile
         </button>

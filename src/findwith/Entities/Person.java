@@ -19,6 +19,15 @@ public class Person extends User{
     private List<String> skills;
     private List<Course> courses;
     private List<String> contacts;
+    private List<Contact> contactProfiles;
+
+    public List<Contact> getContactProfiles() {
+        return contactProfiles;
+    }
+
+    public void setContactProfiles(List<Contact> contactProfiles) {
+        this.contactProfiles = contactProfiles;
+    }
 
     public List<Course> getCourses() {
         return courses;
