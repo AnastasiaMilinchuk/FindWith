@@ -15,6 +15,12 @@
     <link type="text/css" rel="stylesheet" href="resources/signup.css">
     <script  type="text/javascript" src="javascript/jquery.js" charset="utf-8">
     </script>
+    <script src="javascript/country.js"></script>
+    <script src="javascript/city.js"></script>
+    <script src="javascript/industry.js"></script>
+    <script src="javascript/university.js"></script>
+    <script src="javascript/faculty.js"></script>
+
     <script  type="text/javascript">
         $(function(){
             $('#person').click(function(){
@@ -47,6 +53,10 @@
             for(var i = 1920; i <= 2004; i++){ //max input box allowed
                 $("#year").append(' <option selected value="'+i+'">'+i+'</option>'); //add input box
             }
+
+            for(var i = 1940; i <= 2020; i++){
+                $("#graduateYear").append(' <option selected value="'+i+'">'+i+'</option>'); //add input box
+            };
         });
 
     </script>
@@ -113,22 +123,32 @@
                         <div class="inputpos">
                             <label  class="labelcontrols" >Education</label>
                             <div class="controls">
-                                <input class="controls" placeholder="University" tittle="Enter university"name="university" id="university">
-                                <input class="controls" placeholder="Faculty" tittle="Enter faculty" name="faculty" id="faculty">
-                                <input class="controls" placeholder="Graduate year" tittle="Enter graduate year" name="graduateYear" id="graduateYear">
+                                <select class="controls" name="university" id="universities">
+                                    <option selected>none</option>
+                                </select>
+                                <select class="controls" name="faculty" id="faculties">
+                                    <option selected>none</option>
+                                </select>
+                                <select class="controls" name="graduateYear" id="graduateYear"></select>
                             </div>
                         </div>
                         <div class="inputpos">
                             <label  class="labelcontrols" >Industry</label>
                             <div class="controls">
-                                <input class="controls" placeholder="Industry" tittle="Location" name="industry" id="industry">
+                                <select class="controls" name="industry" id="industries">
+                                    <option selected>none</option>
+                                    </select>
                             </div>
                         </div>
                         <div class="inputpos">
                             <label  class="labelcontrols" >Current Location</label>
                             <div class="controls">
-                                <input class="controls" placeholder="Country" tittle="Location"name="country" id="country">
-                                <input class="controls" placeholder="City" tittle="Location"name="city" id="city">
+                                <select  name="country" id="countries">
+                                    <option>none</option>
+                                </select>
+                                <select name="city" id="cities">
+                                    <option>none</option>
+                                </select>
                             </div>
                         </div>
                         <input class="submit" type="submit" name="submit" value="Sign Up" />

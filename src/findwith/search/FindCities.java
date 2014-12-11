@@ -1,4 +1,4 @@
-package findwith.update;
+package findwith.search;
 
 import com.mongodb.*;
 import findwith.controllers.MongoDBController;
@@ -12,24 +12,22 @@ import java.io.IOException;
 /**
  * Created by milinchuk on 12/3/14.
  */
-public class FindCountries extends HttpServlet {
+public class FindCities extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
+
         MongoClient mongoClient = MongoDBController.getMongoDBClient("localhost");
         DB socialNetwork = MongoDBController.getMongoDataBase(mongoClient, "Social_Network");
         boolean auth = socialNetwork.authenticate("milinchuk", "1111".toCharArray());
         DBCollection countrs = MongoDBController.getMongoDBCollection(socialNetwork, "countries");
+        BasicDBObject find = new BasicDBObject("country", request.getParameter("country").toString());
+        DBCursor countries = countrs.find(find);
 
-        DBCursor countries = countrs.find();
-        BasicDBList countryList = new BasicDBList();
-        while(countries.hasNext()){
-            countryList.add(countries.next().get("country"));
-        }
-
-        String countriesJSON = countryList.toString();
+        BasicDBList cityList = (BasicDBList)countries.next().get("cities");
+        String citiesJSON = cityList.toString();
         response.setContentType("application/json");
-        response.getWriter().write(countriesJSON);
+        response.getWriter().write(citiesJSON);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -194,7 +194,6 @@
         border: none;
         color: #fefffc;
         margin-top: 15px;
-        margin-left: 20px;
     }
     .change{
         background-color: #16612e;
@@ -333,4 +332,96 @@
         padding-right: 10px;
         background-color: cadetblue;
         color: white;
+    }
+    .photo{
+        position: relative;
+        float: left;
+        width: 100px;
+        height: 94px;
+    }
+    .text{
+        color: rgb(38, 37, 39);
+        font-family: Garamond,serif;
+        font-size: 16px;
+        letter-spacing: 3px;
+        position: relative;
+        margin-left: 0px;
+        padding-bottom: 20px;
+    }
+    .navigation{
+        position: relative;
+        float: left;
+        width: 22%;
+        height: auto;
+    }
+    .section{
+        position: relative;
+        float: left;
+        width: 60%;
+        margin-left: 50px;
+        height: auto;
+    }
+    .select{
+        background-color: #FFFFFF;
+        border-color: #D3D3D3;
+        border-style: solid;
+        height: 30px;
+        margin-top: 7px;
+        position: relative;
+        text-align: left;
+        text-rendering: auto;
+        width: 100%;
+    }
+    .add-skill-to-find{
+        background-color: inherit;
+        border: medium none;
+        color: #008000;
+        font-size: 30px;
+        height: 30px;
+        width: 10%;
+    }
+    .add-skill{
+        position: relative;
+        float: left;
+        height: auto;
+        width: 100%;
+    }
+    .search-box{
+        float: left;
+        height: auto;
+        padding: 10px;
+        position: relative;
+        width: 100%;
+    }
+    .search-type{
+        background-color: #C8CBE7;
+        float: left;
+        margin-bottom: 15px;
+        padding-bottom: 3px;
+        padding-top: 3px;
+        position: relative;
+        text-align: center;
+        width: 100%;
+    }
+    .find{
+        background-color: #6383A8;
+        width: 100px;
+        height: 30px;
+        border: none;
+        color: #fefffc;
+        margin-top: 15px;
+    }
+    .result{
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+    }
+    .inner-search-box{
+        position: relative;
+        float: left;
+        width: 100%;
+        height: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }

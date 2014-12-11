@@ -9,50 +9,81 @@
 <html>
 <head>
     <title></title>
+    <script src="javascript/jquery.js"></script>
     <script src="javascript/add-skill-to-find.js"></script>
+    <script src="javascript/country.js"></script>
+    <script src="javascript/city.js"></script>
+    <script src="javascript/industry.js"></script>
+    <script src="javascript/find-people.js"></script>
+    <script src="javascript/delete-skill-to-find.js"></script>
+    <script src="javascript/add-to-friends.js"></script>
+
 </head>
 <body>
     <jsp:include page="upperBox.jsp"/>
 
-    <section>
-        <label>Find by name</label>
-        <br>
-        <input placeholder="First Name"/><br>
-        <input placeholder="Last Name"/>
-        <br>
-
-        <br>
-        <label>Знайти за спеціалізацією</label>
-        <br>
-        <input placeholder="Industry"/>
-        <br>
-
-        <br>
-        <label>Find by skills</label>
-        <div id="skills">
+    <nav class="navigation">
+        <div class="search-box">
+            <h2 class="search-type">Search</h2>
+            <br>
+            <label>Find by name</label>
+            <br>
+            <input  class="select"  placeholder="First Name"/><br>
+            <input  class="select" placeholder="Last Name"/>
+            <br>
+            <button class="find" id="find-by-name">Find</button>
+            <br>
         </div>
-        <br>
-        <input placeholder="Skill">
-        <button id="add-skill">Add skill</button>
-        <br>
 
-        <br>
-        <label>Find by location</label>
-        <br>
-        <input placeholder="Country">
-        <br>
-        <input placeholder="City"/>
-        <br>
+        <div class="search-box">
+            <h3 class="search-type">Full search</h3> <br><br>
+            <label>Find by industry</label><br>
+            <select  class="select" id="industries">
+                <option selected >none</option>
+            </select>
+                <br><br>
+            <label>Find by skills</label>
+            <div class="inner-search-box">
+                <div class="skilltext" class="add-skill" id="skills">
+                </div>
+                <div class="add-skill">
+                    <input class="select" style="width: 86%;" id="skill" placeholder="Skill"/>
+                    <button class="add-skill-to-find" id="add-skill">+</button>
+                </div>
+                <br>
+                <br><br>
+            </div>
 
-         <button>Find</button>
-        <br>
-        <h3>Found:</h3>
-        <div></div>
+            <div class="inner-search-box">
+                <label>Find by location</label>
+                <br>
+                <select class="select" id="countries">
+                    <option selected>none</option>
+                </select>
+                <br>
+                <select class="select" id="cities">
+                    <option selected>none</option>
+                </select>
+                <br>
+                <button class="find" id="find-people">Find</button>
+                <br>
+            </div>
+        </div>
+
+    </nav>
+
+    <section class="section">
+            <h3 class="search-type">Result</h3>
+            <div class="result">
+                <table id="found-people">
+
+                </table>
+            </div>
     </section>
 
 
     <footer>
-
     </footer>
+
 </body>
 </html>

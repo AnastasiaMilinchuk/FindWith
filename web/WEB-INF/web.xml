@@ -45,7 +45,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Profile</servlet-name>
-        <url-pattern>/Profile</url-pattern>
+        <url-pattern>/profile</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddCourse</servlet-name>
@@ -127,6 +127,13 @@
         <servlet-name>DeleteProject</servlet-name>
         <url-pattern>/delete-project</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToContact</servlet-name>
+        <url-pattern>/add-to-contact</url-pattern>
+    </servlet-mapping>
+
+
+
 
 
 
@@ -144,7 +151,7 @@
     </servlet>
     <servlet>
         <servlet-name>FindIndusrty</servlet-name>
-        <servlet-class>findwith.update.FindIndustry</servlet-class>
+        <servlet-class>findwith.search.FindIndustry</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UpdateProfile</servlet-name>
@@ -160,7 +167,7 @@
     </servlet>
     <servlet>
         <servlet-name>FindPeople</servlet-name>
-        <servlet-class>findwith.profiles.FindPeople</servlet-class>
+        <servlet-class>findwith.search.FindPeople</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MongoSignup</servlet-name>
@@ -194,19 +201,19 @@
     </servlet>
     <servlet>
         <servlet-name>FindUniversities</servlet-name>
-        <servlet-class>findwith.update.FindUniversities</servlet-class>
+        <servlet-class>findwith.search.FindUniversities</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FindFaculties</servlet-name>
-        <servlet-class>findwith.update.FindFaculties</servlet-class>
+        <servlet-class>findwith.search.FindFaculties</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FindCountries</servlet-name>
-        <servlet-class>findwith.update.FindCountries</servlet-class>
+        <servlet-class>findwith.search.FindCountries</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>FindCities</servlet-name>
-        <servlet-class>findwith.update.FindCities</servlet-class>
+        <servlet-class>findwith.search.FindCities</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>DeleteSkill</servlet-name>
@@ -215,6 +222,10 @@
     <servlet>
         <servlet-name>DeleteCourse</servlet-name>
         <servlet-class>findwith.update.DeleteCourse</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddToContact</servlet-name>
+        <servlet-class>findwith.update.AddToContact</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MongoSignup</servlet-name>

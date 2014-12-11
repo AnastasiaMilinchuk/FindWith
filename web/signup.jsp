@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="mainboxleft">
-                <form action="${pageContext.request.contextPath}/signup-step2" method="post">
+                <form action="signup-step2" method="post">
                     <div class="inputpos">
                         <label class="labelcontrols" >First name</label>
                         <input required id="firstname" class="controls"

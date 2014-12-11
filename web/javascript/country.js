@@ -5,8 +5,7 @@ $(document).ready(function() {
             var data = JSON.parse(xhr.responseText);
             var universities = (data.toString()).split(',');
             for(var x in universities){
-                $("#countries").append('<option selected value="'+ universities[x]+'">');
-
+                $("#countries").append('<option value="'+ universities[x]+'">'+universities[x]+'</option>');
             }
         }
     }

@@ -1,6 +1,9 @@
 package findwith.profiles;
 
 
+import findwith.DAORealizations.UserDAOImpl;
+import findwith.Entities.Person;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,28 +17,20 @@ import java.sql.*;
  */
 public class Profile extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String JDBC_DRIVER="com.mysql.jdbc.Driver";
-        String DB_URL="jdbc:mysql://localhost:3306/test";
-        PrintWriter out = response.getWriter();
-        try{
-            Class.forName(JDBC_DRIVER);
-            Connection connection = DriverManager.getConnection(DB_URL);
-            Statement statement = connection.createStatement();
-            String query = "DELETE FROM users WHERE email = \""+ request.getParameter("email").toString() +"\"";
-            int res = statement.executeUpdate(query);
-            request.getRequestDispatcher("/profileDeletion.jsp").forward(request, response);
-        }catch (ClassNotFoundException e){
-            out.print("class not found");
-        }catch (SQLException e){
-            out.print("sql exception");
-        }catch (Exception e){
-            out.print("Exception");
-        }
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("name", "Anastasia Milinchuk");
-        request.getRequestDispatcher("/profile.jsp").forward(request, response);
+            UserDAOImpl userDAO = new UserDAOImpl("localhost","Social_Network", "users");
+            if(userDAO.isExist(request.getParameter("id"))){
+                Person person = userDAO.getUserByID(request.getParameter("id").toString());
+                request.getSession().setAttribute("person", person);
+                request.getSession().setAttribute("login", true);
+                request.getRequestDispatcher("profile.jsp").forward(request,response);
+            }
+            else{
+                //response.sendRedirect("noaccess.jsp");
+            }
+
     }
 }

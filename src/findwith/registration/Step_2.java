@@ -22,7 +22,7 @@ public class Step_2 extends HttpServlet {
         person.setLogin(request.getParameter("email"));
 
         request.getSession().setAttribute("person", person);
-        response.sendRedirect("profile.jsp");
+        response.sendRedirect("signup-step2.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

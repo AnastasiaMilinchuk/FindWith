@@ -2,12 +2,14 @@ package findwith.DAORealizations;
 
 import com.mongodb.*;
 import findwith.DAO.UserDAO;
+import findwith.Entities.Contact;
 import findwith.Entities.InnerEntities.Course;
 import findwith.Entities.InnerEntities.Location;
 import findwith.Entities.InnerEntities.Project;
 import findwith.Entities.InnerEntities.UserEducation;
 import findwith.Entities.Person;
 import findwith.controllers.MongoDBController;
+import org.bson.types.ObjectId;
 
 import java.net.UnknownHostException;
 import java.util.Date;
@@ -119,6 +121,42 @@ public class UserDAOImpl implements UserDAO {
             return newPerson;
     }
 
+    public Person getUserByID(String id) {
+        ObjectId _id = new ObjectId(id);
+        BasicDBObject findQuery = new BasicDBObject("_id", _id);
+        DBCursor usrs = users.find(findQuery);
+        Person newPerson = new Person();
+        for(DBObject u: usrs){
+            newPerson = fillUser(u);
+        }
+
+        return newPerson;
+    }
+
+    public List<Contact> getContacts(List<String> contactIds){
+        BasicDBList contacts = new BasicDBList();
+        for(String id: contactIds){
+            ObjectId _id = new ObjectId(id);
+            BasicDBObject o = new BasicDBObject("_id", _id);
+            contacts.add(o);
+        }
+        BasicDBObject query = new BasicDBObject("$or", contacts);
+        DBCursor result = users.find(query);
+        List<Contact> contactList = new LinkedList<Contact>();
+        while(result.hasNext()){
+            Contact c = new Contact();
+            DBObject contact = result.next();
+            c.setFirstname(contact.get("firstname").toString());
+            c.setLastname(contact.get("secondname").toString());
+            c.setEmail(contact.get("email").toString());
+            c.setPhoto(contact.get("photo").toString());
+            c.set_id((contact.get("_id")).toString());
+            contactList.add(c);
+        }
+
+        return contactList;
+    }
+
     @Override
     public boolean addUser(Person person) {
         try {
@@ -187,6 +225,16 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public boolean isExist(String login, String password) {
         BasicDBObject findQuery = new BasicDBObject("login", login).append("password", password);
+        DBCursor usrs = users.find(findQuery);
+        if(usrs.size() == 1){
+            return true;
+        }
+        else
+            return false;
+    }
+    public boolean isExist(String id) {
+        ObjectId _id = new ObjectId(id);
+        BasicDBObject findQuery = new BasicDBObject("_id", _id);
         DBCursor usrs = users.find(findQuery);
         if(usrs.size() == 1){
             return true;

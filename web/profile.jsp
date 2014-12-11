@@ -4,6 +4,7 @@
 <%@ page import="findwith.Entities.InnerEntities.Project" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="findwith.Entities.Contact" %>
 <%--
   Created by IntelliJ IDEA.
   Person: milinchuk
@@ -178,17 +179,21 @@
             <div class="works">
                     <table>
                         <%
-                            if(((Person)request.getSession().getAttribute("person")).getCourses() != null){
-                                for(String following: ((Person)request.getSession().getAttribute("person")).getContacts())
+                            if((request.getSession().getAttribute("contacts")) != null){
+                                for(Contact contact: (List<Contact>)request.getSession().getAttribute("contacts"))
                                 { %>
                         <tr>
                             <td>
-                                <img class="add" src="resources/profile-icon.png">
+                                <img class="add" src="<%=contact.getPhoto()%>">
                             </td>
                             <td>
-                                <div class="add-skills-data">
-                                    <label><%=following%></label><br>
-                                </div>
+                               <a href="profile?id=<%=contact.get_id()%>">
+                                   <h3>
+                                       <%=(contact.getFirstname() + " " + contact.getLastname())%>
+                                    </h3>
+                               </a>
+                                <br><br>
+                                <label><%=contact.getEmail()%></label>
                             </td>
                         </tr>
                             <%

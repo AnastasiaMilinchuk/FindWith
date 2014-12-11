@@ -1,4 +1,4 @@
-package findwith.update;
+package findwith.search;
 
 import com.mongodb.*;
 import findwith.controllers.MongoDBController;
@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * Created by milinchuk on 12/3/14.
  */
-public class FindCities extends HttpServlet {
+public class FindFaculties extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
@@ -20,14 +20,14 @@ public class FindCities extends HttpServlet {
         MongoClient mongoClient = MongoDBController.getMongoDBClient("localhost");
         DB socialNetwork = MongoDBController.getMongoDataBase(mongoClient, "Social_Network");
         boolean auth = socialNetwork.authenticate("milinchuk", "1111".toCharArray());
-        DBCollection countrs = MongoDBController.getMongoDBCollection(socialNetwork, "countries");
-        BasicDBObject find = new BasicDBObject("country", request.getParameter("country").toString());
-        DBCursor countries = countrs.find(find);
+        DBCollection univers = MongoDBController.getMongoDBCollection(socialNetwork, "education");
+        BasicDBObject find = new BasicDBObject("university", request.getParameter("university").toString());
+        DBCursor universities = univers.find(find);
 
-        BasicDBList cityList = (BasicDBList)countries.next().get("cities");
-        String citiesJSON = cityList.toString();
+        BasicDBList universityList = (BasicDBList)universities.next().get("faculties");
+        String universitiesJSON = universityList.toString();
         response.setContentType("application/json");
-        response.getWriter().write(citiesJSON);
+        response.getWriter().write(universitiesJSON);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

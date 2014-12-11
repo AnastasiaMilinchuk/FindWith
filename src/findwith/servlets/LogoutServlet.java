@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class LogoutServlet  extends HttpServlet {
@@ -16,8 +17,10 @@ public class LogoutServlet  extends HttpServlet {
     }
 
     private void processServlet (HttpServletRequest request, HttpServletResponse response) throws IOException {
-                       request.getSession().setAttribute("login", null);
-                       request.getSession().setAttribute("person", null);
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
         response.sendRedirect("/index.jsp");
     }
 }
