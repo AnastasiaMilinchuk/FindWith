@@ -62,8 +62,8 @@ public class MsgDAOImpl implements MsgDAO {
             Message temp = new Message();
             temp.setText((String) next.get("text"));
             temp.setFromEmail((String) next.get("from"));
-            temp.setText((String) next.get("to"));
-            temp.setText((String) next.get("subject"));
+            temp.setToEmail((String) next.get("to"));
+            temp.setSubject((String) next.get("subject"));
             result.add(temp);
         }
         return result;

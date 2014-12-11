@@ -18,22 +18,21 @@
 
 <div class="skills">
 
-    <div class="add-skills">
-        <%
-            MsgDAOImpl msgDAO = new MsgDAOImpl();
-            msgDAO.getOutboxMessagesForUser(((Person)request.getSession().getAttribute("person")).getEmail());
-            List<Message> outBoxMessages = msgDAO.getOutboxMessagesForUser(((Person) request.getSession().getAttribute("person")).getEmail());
-            out.print(outBoxMessages);
-            out.print(outBoxMessages.size());
-
-
-                for(Message msg: outBoxMessages)
-                { %>
-        <span style="display: inline-block;"><label class="stiker"></label><label class="skill"><%=msg%></label></span><%
-
-            }
-    %>
-    </div>
+<%
+    MsgDAOImpl msgDAO = new MsgDAOImpl();
+    List<Message> outBoxMessages = msgDAO.getOutboxMessagesForUser(((Person) request.getSession().getAttribute("person")).getEmail());
+    out.println("<section class=\"ac-container\">");
+    for(int i = 0;i<outBoxMessages.size();i++){
+        out.print("  <div>\n" +
+                "            <input id=\"aco-"+(i)+"\" name=\"accordion-1\" type=\"checkbox\"  />\n" +
+                "            <label for=\"aco-"+(i)+"\"> To:"+outBoxMessages.get(i).getToEmail()+":  "+outBoxMessages.get(i).getSubject()+"</label>\n" +
+                "            <article>\n" +
+                "                <p>"+outBoxMessages.get(i).getText()+"</p>\n" +
+                "            </article>\n" +
+                "        </div>");
+    }
+    out.println("</section>");
+%>
 
 </div>
 

@@ -2,7 +2,7 @@
 <%@ page import="findwith.Entities.Message" %>
 <%@ page import="findwith.Entities.Person" %>
 <%@ page import="java.util.List" %>
-new_message.jsp<%--
+<%--
   Created by IntelliJ IDEA.
   User: milinchuk
   Date: 11/28/14
@@ -18,22 +18,21 @@ new_message.jsp<%--
 
 <div class="skills">
 
-    <div class="add-skills">
         <%
             MsgDAOImpl msgDAO = new MsgDAOImpl();
-            msgDAO.getOutboxMessagesForUser(((Person)request.getSession().getAttribute("person")).getEmail());
-            List<Message> outBoxMessages = msgDAO.getOutboxMessagesForUser(((Person) request.getSession().getAttribute("person")).getEmail());
-            out.print(outBoxMessages);
-            out.print(outBoxMessages.size());
-
-
-            for(Message msg: outBoxMessages)
-            { %>
-        <span style="display: inline-block;"><label class="stiker"></label><label class="skill"><%=msg%></label></span><%
-
-        }
-    %>
-    </div>
+            List<Message> inBoxMessages = msgDAO.getInboxMessagesForUser(((Person) request.getSession().getAttribute("person")).getEmail());
+            out.println("<section class=\"ac-container\">");
+            for(int i = 0;i< inBoxMessages.size();i++){
+                out.print("  <div>\n" +
+                        "            <input id=\"ac-"+(i)+"\" name=\"accordion-1\" type=\"checkbox\"  />\n" +
+                        "            <label for=\"ac-"+(i)+"\"> From:"+ inBoxMessages.get(i).getFromEmail()+":  "+inBoxMessages.get(i).getSubject()+" </label>\n" +
+                        "            <article>\n" +
+                        "                <p>"+ inBoxMessages.get(i).getText()+"</p>\n" +
+                        "            </article>\n" +
+                        "        </div>");
+            }
+            out.println("</section>");
+        %>
 
 </div>
 

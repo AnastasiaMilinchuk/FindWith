@@ -21,9 +21,6 @@ public class SendMessageServlet extends HttpServlet {
     }
 
     private void processServlet (HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getParameter("msgTo");
-        request.getParameter("msgSubject");
-        request.getParameter("msgText");
         MsgDAOImpl msgDAO = new MsgDAOImpl();
         Person currentUser = (Person) request.getSession().getAttribute("person");
         Message messageForSend = new Message();
