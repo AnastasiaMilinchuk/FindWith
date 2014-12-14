@@ -195,9 +195,8 @@
                                            <a href="profile?id=<%=contact.get_id()%>">
                                                <h3>
                                                    <%=(contact.getFirstname() + " " + contact.getLastname())%>
-                                                </h3>
+                                               </h3>
                                            </a>
-                                           <br>
                                             <label><%=contact.getEmail()%></label>
                                        </div>
                                     </div>

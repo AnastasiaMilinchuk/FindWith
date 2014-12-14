@@ -2,12 +2,26 @@
     display: none;
 }
 .radio-label{
-    display:inline-block;
-    background-color:#C8CBE7;
-    padding:4px 11px;
-    font-family:Arial;
-    font-size:20px;
-    margin: 30px;
+    display: inline-block;
+    background-color: rgb(99, 131, 168);
+    color: white;
+    padding-top: 13px;
+    font-size: 16px;
+    position: relative;
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 13px;
+}
+
+.radio{
+    position: relative;
+    float: left;
+    background-color: white;
+    padding: 10px;
+    font-size: 16px;
+    padding-top: 10px;
+    width: 75%;
 }
 .penal-button{
     background-color: #6383A8;
@@ -23,21 +37,22 @@
     font-size: 16px;
 }
 .new-message-layout{
-    display: block
+    display: block;
     padding-left: 100px;
 }
 
 .text-input-container{
-    margin: 20px;
+    position: relative;
+    float: left;
+    width: 100%;
 }
 
 .text-input{
-    width: 300px;
-    position: absolute;
-    left: 150px;
+    width: 100%;
+    position: relative;
 }
 
-body {background: #e0e3ec url(/img/bgnoise_lg.jpg) repeat top left;}
+/*body {background: #e0e3ec url(/img/bgnoise_lg.jpg) repeat top left;}*/
 .ac-container{
     width: 400px;
     margin: 10px auto 30px auto;
@@ -132,5 +147,16 @@ body {background: #e0e3ec url(/img/bgnoise_lg.jpg) repeat top left;}
     font-size: 14px;
     padding: 20px;
     text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+}
+.inbox-img{
+    width: 12%;
+    position: relative;
+    float: left;
+}
+.msg{
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 10px;
 }
 

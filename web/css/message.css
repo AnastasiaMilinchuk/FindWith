@@ -1,0 +1,91 @@
+.main{
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+}
+
+.contcts{
+  position: relative;
+  float: left;
+  height: auto;
+  width: auto;
+  margin-right: 2%;
+}
+
+.send-msg {
+  position: relative;
+  float: left;
+  width: 45%;
+  height: auto;
+  padding-top: 4%;
+  margin-left: 4%;
+}
+.works {
+      width: auto;
+      padding: 30px;
+      height: auto;
+      float: left;
+      position: relative;
+}
+.card-people {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: auto;
+}
+
+.photo-people{
+  position: relative;
+  float: left;
+  width: 50px;
+  height: auto;
+}
+.message-menu{
+  position: relative;
+  float: left;
+  width: 18%;
+  height: auto;
+}
+
+.message-layout{
+  position: relative;
+  float: left;
+  width: 15%;
+  height: 80%;
+  border-right: 1px solid lightgray;
+  margin: 2%;
+  padding-right: 2%;
+  padding-top: 1%;
+}
+
+.message-contacts{
+  overflow: auto;
+  width: auto;
+  padding: 10px;
+  height: 80%;
+  float: left;
+  position: relative;
+}
+.contact-name{
+  font-size: 14px;
+  font-family: Garamond,serif
+}
+.choose-friend{
+    padding-top: 10px;
+    margin-bottom: 15px;
+    float: left;
+    position: relative;
+    width: 100%;
+    background-color: lavender;
+    text-align: center;
+    padding-bottom: 10px;
+
+}
+
+.textarea-msg{
+width: 100%;
+height: 40%;
+position: relative;
+float: left;
+}

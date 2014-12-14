@@ -443,6 +443,7 @@
     }
     .info{
         padding-top: 0px;
+        margin-top: -10px;
         margin-left: 5%;
         margin-right: 5%;
     }
@@ -485,7 +486,6 @@
         position: relative;
         float: left;
         margin-left: 5%;
-
         height: auto;
         width: auto;
     }
