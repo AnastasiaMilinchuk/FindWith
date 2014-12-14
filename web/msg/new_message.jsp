@@ -12,6 +12,15 @@
 <html>
 <head>
     <title></title>
+    <script>
+        $(function(){
+            $(".card-people").click(function(event){
+                $("#to").text($("#"+event.target.id).text());
+                $("#msgto").val(event.target.id);
+            });
+        });
+    </script>
+
 
 </head>
 <body>
@@ -32,7 +41,7 @@
                                 { %>
                     <tr>
                         <td>
-                            <div class="card-people">
+                            <div class="card-people"  >
                                 <div class="card-photo">
                                     <a href="profile?id=<%=contact.get_id()%>">
                                             <img class="photo-people" src="<%=contact.getPhoto()%>">
@@ -40,13 +49,9 @@
                                 </div>
 
                                 <div class="card-info" >
-                                    <div class="">
-
-                                            <h3 class="contact-name">
+                                            <label id="<%=contact.get_id()%>" class="contact-name">
                                                 <%=(contact.getFirstname() + " " + contact.getLastname())%>
-                                            </h3>
-
-                                    </div>
+                                            </label>
                                 </div>
                             </div>
 
@@ -62,7 +67,8 @@
         <div class="send-msg">
             <div class="text-input-container">
                <label class="new-message-label">To:</label>
-               <input  type="text" name="msgTo" class="text-input"/>
+               <label id="to" type="text" class="to-input"></label>
+               <input id="msgto" hidden="true" type="text" name="msgTo"/>
             </div>
             <div class="text-input-container">
                <label class="new-message-label">Subject:</label>

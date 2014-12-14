@@ -234,7 +234,7 @@
         letter-spacing: 3px;
         position: relative;
         margin-left: 0px;
-        padding-bottom: 20px;
+        padding-bottom: 3px;
     }
     .article{
         width: 94%;
@@ -488,4 +488,9 @@
         margin-left: 5%;
         height: auto;
         width: auto;
+    }
+    .update-data{
+        position: relative;
+        float: left;
+        width: 100%;
     }

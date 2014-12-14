@@ -4,10 +4,13 @@ import com.mongodb.*;
 import findwith.Constants;
 import findwith.DAO.MsgDAO;
 import findwith.Entities.Message;
+import findwith.Entities.Person;
 import findwith.controllers.MongoDBController;
+import org.bson.types.ObjectId;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -47,7 +50,8 @@ public class MsgDAOImpl implements MsgDAO {
         BasicDBObject newMessage = new BasicDBObject("from", msg.getFromEmail()).
                 append("to", msg.getToEmail()).
                 append("subject", msg.getSubject()).
-                append("text", msg.getText());
+                append("text", msg.getText()).
+                append("time", msg.getTime());
         messages.save(newMessage);
         return true;
     }
@@ -64,8 +68,23 @@ public class MsgDAOImpl implements MsgDAO {
             temp.setFromEmail((String) next.get("from"));
             temp.setToEmail((String) next.get("to"));
             temp.setSubject((String) next.get("subject"));
+            temp.setTime((Date)next.get("time"));
             result.add(temp);
         }
         return result;
+    }
+
+    public String getNameById(String id){
+        String name = new String();
+        DBCollection users = MongoDBController.getMongoDBCollection(dataBase, "users");
+        ObjectId _id = new ObjectId(id);
+        BasicDBObject findQuery = new BasicDBObject("_id", _id);
+        DBCursor usrs = users.find(findQuery);
+        for(DBObject u: usrs){
+           name = u.get("firstname").toString();
+           name += " " + u.get("secondname").toString();
+        }
+
+        return name;
     }
 }

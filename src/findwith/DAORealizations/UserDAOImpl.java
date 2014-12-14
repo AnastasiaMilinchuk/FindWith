@@ -30,6 +30,7 @@ public class UserDAOImpl implements UserDAO {
     }
     private Person fillUser(DBObject u){
         Person newPerson = new Person();
+        newPerson.setId(((ObjectId)u.get("_id")).toString());
         newPerson.setFirstname((String)u.get("firstname"));
         newPerson.setLastname((String)u.get("secondname"));
 

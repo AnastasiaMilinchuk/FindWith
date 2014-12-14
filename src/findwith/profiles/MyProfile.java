@@ -18,7 +18,7 @@ public class MyProfile extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession().getAttribute("user").toString() != null){
+        if(request.getSession().getAttribute("user") != null){
             UserDAOImpl userDAO = new UserDAOImpl("localhost","Social_Network", "users");
             Person person = userDAO.getUser(request.getSession().getAttribute("user").toString());
             request.getSession().setAttribute("person", person);

@@ -47,6 +47,7 @@ public class CreateUserProfile extends HttpServlet {
 
         request.getSession().setAttribute("person", person);
         request.getSession().setAttribute("login", "true");
+        request.getSession().setAttribute("user", person.getLogin());
         request.getRequestDispatcher("/MongoSignup").forward(request, response);
         } catch (ParseException e) {
             e.printStackTrace();

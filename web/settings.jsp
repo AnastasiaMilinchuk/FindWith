@@ -84,18 +84,18 @@
                             <select name="year" id="byear">
                             </select>
 
-                            <p><input id="email" value="<%= ((Person)request.getSession().getAttribute("person")).getEmail()%>"></p>
+                            <p><input class="update-data" id="email" value="<%= ((Person)request.getSession().getAttribute("person")).getEmail()%>"></p>
 
-                            <p><input id="phone" value="<%= ((Person)request.getSession().getAttribute("person")).getPhone()%>"></p>
+                            <p><input class="update-data" id="phone" value="<%= ((Person)request.getSession().getAttribute("person")).getPhone()%>"></p>
 
-                            <p><input id="industry" list="industries" value="<%= ((Person)request.getSession().getAttribute("person")).getIndustry() %>">
+                            <p><input class="update-data" id="industry" list="industries" value="<%= ((Person)request.getSession().getAttribute("person")).getIndustry() %>">
                                 <datalist id="industries">
                                 </datalist></p>
 
-                            <p><input id="university" list="universities" value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getUniversity() %>">
+                            <p><input class="update-data" id="university" list="universities" value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getUniversity() %>">
                                     <datalist id="universities">
                                     </datalist>
-                                <input id="faculty" list="faculties" value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getFaculty() %>">
+                                <input class="update-data" id="faculty" list="faculties" value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getFaculty() %>">
                                     <datalist id="faculties">
                                     </datalist>
                                 <select name="year" id="graduateYear" <%--value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getGraduateYear() %>"--%>></select></p>

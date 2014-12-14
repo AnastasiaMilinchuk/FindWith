@@ -1,5 +1,7 @@
 package findwith.Entities;
 
+import java.util.Date;
+
 /**
  * Created by click on 12/7/2014.
  */
@@ -8,6 +10,16 @@ public class Message {
     private String fromEmail;
     private String toEmail;
     private String subject;
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    private Date time;
 
     public String getSubject() {
         return subject;

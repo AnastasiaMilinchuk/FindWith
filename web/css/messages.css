@@ -21,6 +21,13 @@
   padding-top: 4%;
   margin-left: 4%;
 }
+.inbox-outbox-msg{
+    height: auto;
+    float: left;
+    position: relative;
+    width: 60%;
+    padding: 30px;
+}
 .works {
       width: auto;
       padding: 30px;
@@ -69,6 +76,8 @@
 }
 .contact-name{
   font-size: 14px;
+   width: 100%;
+    height: 100%;
   font-family: Garamond,serif
 }
 .choose-friend{

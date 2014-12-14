@@ -16,18 +16,18 @@
 </head>
 <body>
 
-<div class="skills">
+<div class="inbox-outbox-msg">
 
         <%
             MsgDAOImpl msgDAO = new MsgDAOImpl();
-            List<Message> inBoxMessages = msgDAO.getInboxMessagesForUser(((Person) request.getSession().getAttribute("person")).getEmail());
+            List<Message> inBoxMessages = msgDAO.getInboxMessagesForUser(((Person) request.getSession().getAttribute("person")).getId());
             out.println("<section class=\"ac-container\">");
             for(int i = 0;i< inBoxMessages.size();i++){
                 out.print("  <div>\n" +
-                        "            <input id=\"ac-"+(i)+"\" name=\"accordion-1\" type=\"checkbox\"  />\n" +
-                        "            <label for=\"ac-"+(i)+"\"> From:"+ inBoxMessages.get(i).getFromEmail()+":  "+inBoxMessages.get(i).getSubject()+" </label>\n" +
+                        "            <input id=\"aco-"+(i)+"\" name=\"accordion-1\" type=\"checkbox\"  />\n" +
+                        "            <label style='width: auto;' for=\"aco-"+(i)+"\"><div style='background-color: lavender; width: 90%; padding-left: 1%;' >From:  "+msgDAO.getNameById(inBoxMessages.get(i).getFromEmail()) +"</div> <div style='width: 85%; padding-left: 1%; font-size: 14px;' > Subject:  "+inBoxMessages.get(i).getSubject()+"</div></label>\n" +
                         "            <article>\n" +
-                        "                <p>"+ inBoxMessages.get(i).getText()+"</p>\n" +
+                        "                <p>"+inBoxMessages.get(i).getText()+"</p>\n" +
                         "            </article>\n" +
                         "        </div>");
             }

@@ -8,6 +8,15 @@ import findwith.Entities.InnerEntities.Location;
 public class User {
     protected String password;
     protected String login;
+    protected String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     protected String firstname;
     protected String lastname;
