@@ -25,7 +25,7 @@
     <div class="container">
         <div class="mainbox">
             <div class="avatar">
-                <img align="middle" class="profile-photo" src="resources/profile.png">
+                <img align="middle" class="profile-photo" src="<%=((Person)request.getSession().getAttribute("person")).getPhoto()%>">
             </div>
             <div class="description">
                 <h1><%= ((Person)request.getSession().getAttribute("person")).getFirstname() +  " " + ((Person)request.getSession().getAttribute("person")).getLastname() %></h1>

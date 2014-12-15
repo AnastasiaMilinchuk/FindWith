@@ -101,7 +101,7 @@
     .profile-photo {
         border: 1px solid #CCCCCC;
         float: left;
-        height: 200px;
+        height: auto;
         margin-bottom: 20px;
         margin-left: 40px;
        width: 200px;
@@ -493,4 +493,5 @@
         position: relative;
         float: left;
         width: 100%;
+        margin-bottom: 8px;
     }

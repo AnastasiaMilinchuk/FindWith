@@ -1,6 +1,7 @@
 $(function(){
     $(".delete-contact").click(function(event) {
         var xhr = new XMLHttpRequest();
+        alert(event.target.id);
         xhr.onreadystatechange = function() {
             if (xhr.readyState == 4) {
                 var data = JSON.parse(xhr.responseText);
@@ -12,7 +13,7 @@ $(function(){
         }
         xhr.open('POST', 'delete-contact', true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send("contact="+ $("#"+event.target.id + "val").text());
+        xhr.send("contact="+ event.target.id);
     });
 });
 

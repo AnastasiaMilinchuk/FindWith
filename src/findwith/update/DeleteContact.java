@@ -4,6 +4,8 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.MongoClient;
+import findwith.DAO.UserDAO;
+import findwith.DAORealizations.UserDAOImpl;
 import findwith.Entities.Person;
 import findwith.controllers.MongoDBController;
 
@@ -22,6 +24,8 @@ public class DeleteContact extends HttpServlet {
         if( request.getSession().getAttribute("login") != null){
             Person person = (Person)(request.getSession().getAttribute("person"));
             List<String> contacts = person.getContacts();
+            UserDAOImpl us = new UserDAOImpl("localhost", "Social_Network", "users");
+            String login = us.getUserByID(request.getParameter("contact").toString()).getLogin();
             if(contacts.contains(request.getParameter("contact").toString())){
                 MongoClient mongoClient = MongoDBController.getMongoDBClient("localhost");
                 DB socialNetwork = MongoDBController.getMongoDataBase(mongoClient, "Social_Network");

@@ -27,8 +27,8 @@
 <body>
 <jsp:include page="upperBox.jsp"/>
 
-<section class="section">
-    <h1 class="search-type">Statistics</h1>
+<section class="statistic-section">
+    <h1 class="statistic-search-type">Statistics</h1>
     <div class="statistic-info">
         <h2>Top-10 skills</h2>
         <%
@@ -38,7 +38,7 @@
             if(size >= 10){
                 size = 10;
             }
-            out.print("<table cellpadding='5px;'>");
+            out.print("<table style='padding-left: 30%;' cellpadding='5px;'>");
             out.print("<thead>");
             out.print("<th>Skill</th>");
             out.print("<th style='text-align: center;'>Popularity</th>");
@@ -52,6 +52,7 @@
                 out.print("</tr>");
             }
             out.print("</table>");
+
         %>
     </div>
 
@@ -63,7 +64,7 @@
             if(size >= 3){
                 size = 3;
             }
-            out.print("<table cellpadding='5px;'>");
+            out.print("<table cellpadding='5px;' style='padding-left: 30%;'>");
             out.print("<thead>");
             out.print("<th>Industry</th>");
             out.print("<th>Popularity</th>");
@@ -79,28 +80,33 @@
     </div>
 
     <div class="statistic-info">
-        <h2>Top industry : </h2>
-        <h3>Found in cities</h3>
-        <%
-            List<String> cities = statistic.getCitiesForTopIndustry();
-            for(String city: cities){
-                out.print("<p>");
-                out.print("<label>" +city+"</label>");
-                out.print("</p>");
-            }
-        %>
+        <h2>City of top industry</h2>
+        <div style="float: left; position:relative; padding-left: 30%;">
+            <table>
+            <%
+                List<String> cities = statistic.getCitiesForTopIndustry();
+                for(String city: cities){
+                    out.print("<tr>");
+                    out.print("<td>" +city+"</td>");
+                    out.print("</tr>");
+                }
+            %>
+                </table>
+        </div>
     </div>
 
     <div class="statistic-info">
         <h2>Country, where FindWith most popular:</h2>
-        <%
-            TopCountry country = statistic.getTopCountry();
-                out.print("<p>");
-                out.print("<label>" +country.getCountry()+"</label>");
-                out.print("<label>" +(int)country.getCount()+"</label>");
-                out.print("</p>");
+        <table style="padding-left: 30%;">
+            <%
+                TopCountry country = statistic.getTopCountry();
+                    out.print("<tr>");
+                    out.print("<td>" +country.getCountry()+"</td></tr>");
+                    out.print("<tr><td>Users quantity:" +(int)country.getCount()+"</td>");
+                    out.print("</tr>");
 
-        %>
+            %>
+        </table>
     </div>
 </section>
 

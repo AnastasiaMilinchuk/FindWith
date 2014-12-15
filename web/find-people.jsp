@@ -17,6 +17,7 @@
     <script src="javascript/find-people.js"></script>
     <script src="javascript/delete-skill-to-find.js"></script>
     <script src="javascript/add-to-friends.js"></script>
+    <script src="javascript/find-people-by-name.js"></script>
 
 </head>
 <body>
@@ -28,10 +29,10 @@
             <br>
             <label>Find by name</label>
             <br>
-            <input  class="select"  placeholder="First Name"/><br>
-            <input  class="select" placeholder="Last Name"/>
+            <input id="firstname" class="select"  placeholder="First Name"/><br>
+            <input id="lastname" class="select" placeholder="Last Name"/>
             <br>
-            <button class="find" id="find-by-name">Find</button>
+            <button class="find" id="find-people-by-name">Find</button>
             <br>
         </div>
 

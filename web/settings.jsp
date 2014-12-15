@@ -53,7 +53,7 @@
         <div class="mainbox">
         <div class="block">
                     <div class="avatar">
-                        <img align="middle" class="profile-photo" src="resources/profile.png">
+                        <img align="middle" class="profile-photo" src="<%=((Person)request.getSession().getAttribute("person")).getPhoto()%>">
                     </div>
                     <div class="description">
                         <h1><%= ((Person)request.getSession().getAttribute("person")).getFirstname() +  " " + ((Person)request.getSession().getAttribute("person")).getLastname() %></h1>
@@ -68,7 +68,7 @@
                             <p><label>Industry:</label></p>
 
                             <p><label>Education:</label></p>
-
+                            <br><br><br>
                             <p><label>Location:</label></p>
 
                         </div>
@@ -88,24 +88,33 @@
 
                             <p><input class="update-data" id="phone" value="<%= ((Person)request.getSession().getAttribute("person")).getPhone()%>"></p>
 
-                            <p><input class="update-data" id="industry" list="industries" value="<%= ((Person)request.getSession().getAttribute("person")).getIndustry() %>">
-                                <datalist id="industries">
-                                </datalist></p>
+                            <p><select class="update-data" id="industries" >
 
-                            <p><input class="update-data" id="university" list="universities" value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getUniversity() %>">
-                                    <datalist id="universities">
-                                    </datalist>
-                                <input class="update-data" id="faculty" list="faculties" value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getFaculty() %>">
-                                    <datalist id="faculties">
-                                    </datalist>
-                                <select name="year" id="graduateYear" <%--value="<%= ((Person)request.getSession().getAttribute("person")).getEducation().getGraduateYear() %>"--%>></select></p>
+                                <option value="none">none</option>
+                                <option selected value="<%= ((Person)request.getSession().getAttribute("person")).getIndustry() %>"><%= ((Person)request.getSession().getAttribute("person")).getIndustry() %></option>
+                            </select></p>
 
-                            <p><input id="country" list="countries" value="<%= ((Person)request.getSession().getAttribute("person")).getLocation().getCountry() %>"></p>
-                                <datalist id="countries">
-                                </datalist>
-                            <p><input id="city" list="cities" value="<%= ((Person)request.getSession().getAttribute("person")).getLocation().getCity() %>"></p>
-                                <datalist id="cities">
-                                </datalist>
+                            <p>
+                                <select class="update-data" name="university" id="universities">
+                                    <option>none</option>
+                                    <option selected><%= ((Person)request.getSession().getAttribute("person")).getEducation().getUniversity() %></option>
+                                </select>
+                                <select class="update-data" name="faculty" id="faculties">
+                                    <option>none</option>
+                                    <option selected><%= ((Person)request.getSession().getAttribute("person")).getEducation().getFaculty() %></option>
+                                </select>
+                                <select class="update-data" name="graduateYear" id="graduateYear"></select>
+
+
+                                <select class="update-data"  name="country" id="countries">
+                                    <option>none</option>
+                                    <option selected value="<%= ((Person)request.getSession().getAttribute("person")).getLocation().getCountry() %>"><%= ((Person)request.getSession().getAttribute("person")).getLocation().getCountry() %></option>
+                                </select>
+                                <select class="update-data" name="city" id="cities">
+                                    <option>none</option>
+                                    <option selected><%= ((Person)request.getSession().getAttribute("person")).getLocation().getCity() %></option>
+                                </select>
+
                             <button class="submit" id="change-profile">Update</button>
                         </div>
                         <%--<button class="change">Change</button>--%>
@@ -297,10 +306,10 @@
                                         </h3>
                                     </a>
                                     <br>
-                                    <label><%=contact.getEmail()%></label>
+                                    <label id="<%=i%>contactinfo"><%=contact.getEmail()%></label>
                                 </div>
                             </td>
-                            <td id="<%=i%>contact" name="delete-contact" class="delete-contact">
+                            <td id="<%=contact.get_id()%>" name="delete-contact" class="delete-contact">
                                 X
                             </td>
                         </tr>

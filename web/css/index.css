@@ -172,6 +172,10 @@
     float: left;
     position: relative;
     width: 100%;
+    background-color: lavender;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
 }
 .statistic{
     background-color: rgb(200, 203, 231);
@@ -182,4 +186,21 @@
     position: relative;
     text-align: center;
     width: 100%;
+}
+.statistic-section{
+    position: relative;
+    float: left;
+    width: 60%;
+    margin-left: 18%;
+    height: auto;
+}
+.statistic-search-type{
+    float: left;
+    margin-bottom: 15px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
 }

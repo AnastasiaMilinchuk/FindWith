@@ -135,7 +135,10 @@
         <servlet-name>MyProfile</servlet-name>
         <url-pattern>/my-profile</url-pattern>
     </servlet-mapping>
-
+    <servlet-mapping>
+        <servlet-name>FindPeopleByName</servlet-name>
+        <url-pattern>/find-people-by-name</url-pattern>
+    </servlet-mapping>
 
 
 
@@ -234,6 +237,10 @@
     <servlet>
         <servlet-name>MyProfile</servlet-name>
         <servlet-class>findwith.profiles.MyProfile</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FindPeopleByName</servlet-name>
+        <servlet-class>findwith.search.FindPeopleByName</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MongoSignup</servlet-name>
