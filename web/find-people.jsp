@@ -24,7 +24,7 @@
 
     <nav class="navigation">
         <div class="search-box">
-            <h2 class="search-type">Search</h2>
+            <h2 class="statistic">Search</h2>
             <br>
             <label>Find by name</label>
             <br>

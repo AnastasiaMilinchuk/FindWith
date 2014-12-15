@@ -23,7 +23,15 @@
                 Logout
             </span></a>
     </div>
-    <div class="upperboxadd">
+      <div class="upperboxadd">
+          <a href="statistics.jsp">
+              <button name="choose" id="statistics" class="accounts">
+                  Statistics
+              </button>
+          </a>
+      </div>
+
+      <div class="upperboxadd">
       <a href="settings.jsp">
         <button name="choose" id="settings" class="accounts">
           Settings
